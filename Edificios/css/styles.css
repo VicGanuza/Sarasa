@@ -130,7 +130,7 @@ footer a:hover{
 input[name="raz_social"]{
 	width: 100%;
 }
-.div_input input[type="radio"], #carga_personalizada input[type="radio"], #denominacion_dpto input[type="radio"]{
+.div_input input[type="radio"], #carga_personalizada input[type="radio"], #denominacion_dpto input[type="radio"], #carga_torres input[type="radio"]{
 	margin: -3px 5px 0 6px;
 	-webkit-appearance: checkbox;
 }
@@ -210,6 +210,12 @@ input[name="raz_social"]{
 #uf_cant input[type="text"]{
 	border-radius: 0px;
 	text-align: center;
+}
+#carga_torres input[type="text"]{
+	width: 40%;
+	float: left;
+	height: 25px;
+	margin-left: 9px;
 }
 /*-----------------------------------------------------------------------------------------------*/
 header img{
@@ -614,6 +620,7 @@ form.carga_dptos{
 	margin-top: -10px;
 	padding-top: 12px;
 	overflow: auto;
+	min-width: 530px;
 }
 .content_whitegrey{
 	background-color: #F7F7F7;
@@ -621,7 +628,6 @@ form.carga_dptos{
 	padding-top: 14px;
 	overflow: auto;
 	width: 480px;
-	padding-right: 60px;
 }
 #ingr_pers_d2{
 	display: none;
@@ -635,7 +641,7 @@ form.carga_dptos{
 	min-height: 94px;
 	background-color: #E6E6E6;
 }
-#checked{
+.check{
 	float: right;
 	margin-right: 10px;
 	margin-top: -55px;
@@ -1015,6 +1021,7 @@ form.carga_dptos{
 	width: 90%;
 	float: left;
 }
+
 .opciones{
 	width: 25px;
 	height: 25px;
@@ -1190,4 +1197,110 @@ form.carga_dptos{
 	opacity: 0.5;
 	margin-left: -30px;
 }
+}
+.deno_torres{
+	width: 100px;
+	float: left;
+}
+.inner_deno{
+	width: 70px;
+	margin-left: 23px;
+}
+.inner_perso{
+	width: 200px;
+	float: left;
+	margin-left: 15px;
+}
+#color-picker-container { display:none; position: absolute; top: 0; width: 100%; left: 0; right: 0; height: 100%; text-align: center; background: rgba(0,0,0,0.5); z-index: 15; cursor: pointer; }
+#color-picker-container .content { background:#fff; width: 470px; margin: 40px auto; border: 2px solid #e68c28; cursor:initial; height: 250px;}
+#color-picker-container .content h4 { background:#f7f7f7; text-transform:uppercase; text-align:center; padding:14px; color:#323232; border-bottom:2px solid #e5e5e5; font-family:'HNMedium'; font-size:14px; margin-top: 0px;}
+#color-picker-container .colores { padding: 27px 17px 6px 17px; }
+#color-picker-container .colores .colorbox { margin:0 13px 23px 13px; float:left; transition:0.2s; outline-color:#e5e5e5; } #color-picker-container .colorbox:hover { outline:4px solid #e5e5e5; }
+#color-picker-container .colorbox .square { float:left; height:30px; width:30px; cursor:pointer; } 
+
+/* colores */
+.color-01 { color:#7d1e2d; }
+.color-01b { color:#873746; }
+.bcolor-01 { background-color:#7d1e2d; }
+.bcolor-01b { background-color:#873746; }
+.border-color-01 { border-color:#7d1e2d !important; }
+.color-02 { color:#b04125; }
+.color-02b { color:#b4553c; }
+.bcolor-02 { background-color:#b04125; }
+.bcolor-02b { background-color:#b4553c; }
+.border-color-02 { border-color:#b04125 !important; }
+.color-03 { color:#c82323; }
+.color-03b { color:#c84141; }
+.bcolor-03 { background-color:#c82323; }
+.bcolor-03b { background-color:#c84141; }
+.border-color-03 { border-color:#c82323 !important; }
+.color-04 { color:#e15f69; }
+.color-04b { color:#e17378; }
+.bcolor-04 { background-color:#e15f69; }
+.bcolor-04b { background-color:#e17378; }
+.border-color-04 { border-color:#e15f69 !important; }
+.color-05 { color:#d1428d; }
+.color-05b { color:#d25f9b; }
+.bcolor-05 { background-color:#d1428d; }
+.bcolor-05b { background-color:#d25f9b; }
+.border-color-05 { border-color:#d1428d !important; }
+.color-06 { color:#70437a; }
+.color-06b { color:#7d5587; }
+.bcolor-06 { background-color:#70437a; }
+.bcolor-06b { background-color:#7d5587; }
+.border-color-06 { border-color:#70437a !important; }
+.color-07 { color:#2873e1; }
+.color-07b { color:#4d85de; }
+.bcolor-07 { background-color:#2873e1; }
+.bcolor-07b { background-color:#4d85de; }
+.border-color-07 { border-color:#2873e1 !important; }
+.color-08 { color:#11448e; }
+.color-08b { color:#375a96; }
+.bcolor-08b { background-color:#375a96; }
+.bcolor-08 { background-color:#11448e; }
+.border-color-08 { border-color:#11448e !important; }
+.color-09 { color:#467869; }
+.color-09b { color:#5a8778; }
+.bcolor-09 { background-color:#467869; }
+.bcolor-09b { background-color:#5a8778; }
+.border-color-09 { border-color:#467869 !important; }
+.color-10 { color:#12aaa0; }
+.color-10b { color:#46b4aa; }
+.bcolor-10 { background-color:#12aaa0; }
+.bcolor-10b { background-color:#46b4aa; }
+.border-color-10 { border-color:#12aaa0 !important; }
+.color-11 { color:#399f69; }
+.color-11b { color:#50aa78; }
+.bcolor-11 { background-color:#399f69; }
+.bcolor-11b { background-color:#50aa78; }
+.border-color-11 { border-color:#399f69 !important; }
+.color-12 { color:#648732; }
+.color-12b { color:#789150; }
+.bcolor-12 { background-color:#648732; }
+.bcolor-12b { background-color:#789150; }
+.border-color-12 { border-color:#648732 !important; }
+.color-13 { color:#a5916e; }
+.color-13b { color:#ac9c80; }
+.bcolor-13 { background-color:#a5916e; }
+.bcolor-13b { background-color:#ac9c80; }
+.border-color-13 { border-color:#a5916e !important; }
+.color-14 { color:#d7aa28; }
+.color-14b { color:#d7b44b; }
+.bcolor-14 { background-color:#d7aa28; }
+.bcolor-14b { background-color:#d7b44b; }
+.border-color-14 { border-color:#d7aa28 !important; }
+.color-15 { color:#e6b482; }
+.color-15b { color:#ebb996; }
+.bcolor-15 { background-color:#e6b482; }
+.bcolor-15b { background-color:#ebb996; }
+.border-color-15 { border-color:#e6b482 !important; }
+
+#consorcio_agrup{
+  width: 100%;
+  float: left;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#consorcio_agrup .nombre_edificio{
+  border-right: none;
 }

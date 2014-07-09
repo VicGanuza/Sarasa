@@ -8,6 +8,7 @@
        <div class="icono_info" title="Esta opci&oacute;n permite agrupar UFs secundarias configuradas en una torre, con UFs principales configuradas en otra."></div>
     </div>
   <div class="cuerpo">
+  
    <div class="columna_izquierda">
      <div class="encabezado">
        Uf secundarias
@@ -66,16 +67,17 @@
        
       <div id="prim_content">  
        <div class="prim_form">
-         <div id="edif_dibujo_uf_prim" class="row demo dibujo_edif display_none">
+         <div id="edif_dibujo_uf_prim" class="row demo dibujo_edif">
           <div id="edificio_uf_prim" class='largo-total gutter-large columns'></div>
         </div>
-        <div id="numeracion_uf_prim" class="row demo display_none">
+        <div id="numeracion_uf_prim" class="row demo">
           <div id="pisos_num_uf_prim" class="largo-total gutter-large columns"></div>
         </div> 
        </div>        
       </div>        
       </div> 
     </div>
+   
   </div>
   <div>
   <h4 class="orange left">Ya agrupastes las UF, Ahora asocialas con sus consorcistas</h4>

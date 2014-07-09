@@ -13,7 +13,7 @@
         <input type="text" name="per" class="personal"/>
     </div>
  </div> 
- <div id="checked">
+ <div id="checked" class="check">
     <img src="images/checked.png"/>
  </div>  
 </div>

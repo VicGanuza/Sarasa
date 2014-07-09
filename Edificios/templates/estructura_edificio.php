@@ -2,7 +2,9 @@
   <div id="encabezado_consorcio">
     <div class="icono"> cd </div> 
     <div id="nombre_edif" class="nombre_edificio">Coronel dias 438</div>
-    <img src="images/icono_colores.png">              
+    <div class="color-picker">
+      <img src="images/icono_colores.png">   
+    </div>           
   </div>
   <div id="title_torres" class="franja_gris_claro">
     <img src="images/icono_torres.png">

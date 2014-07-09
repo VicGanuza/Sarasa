@@ -15,8 +15,8 @@ $(document).ready(function(){
     $('#no_torres_iguales').on('click',function(){
         var cant_torres = $('#cant_torres').val();
         for(i=1;i<=cant_torres;i++){
-            $('.torre_'+i+' #habilitar_unidadesFuncionales').addClass('display_none');
-            $('.torre_'+i+' #habilitar_unidadesOtras').removeClass('display_none');
+         $('.torre_'+i+' #habilitar_unidadesFuncionales').addClass('display_none');
+         $('.torre_'+i+' #habilitar_unidadesOtras').removeClass('display_none');
         }
     });
 
@@ -28,10 +28,15 @@ $(document).ready(function(){
         }
     });
 
+    $('#torres_person').on('click', function(){
+        $('#carga_torres').css('left','30%');
+        $('#carga_torres').fadeIn(200);
+    });
+
     /*Click en los pasos para poder modificar o corregir pasos anteriores*/
     $('#paso_1').on('click',function(){
         $('#titulo_header').html('Alta de administrador');
-        $('#titulo').html('<h1 class="titles">Bienvenido a <span class="blue">Consorcio</span>abierto.</h1><h3 class="titles">Ingresa tus datos y empeza a optimizar tu manera de trabajar.</h3>');
+        $('#titulo .titles').html('Bienvenido a <span class="blue">Consorcio</span>abierto.<h3 class="titles">Ingresa tus datos y empeza a optimizar tu manera de trabajar.</h3>');
         $('#formulario_concorcio').addClass('display_none');
         $('#form_agrupacion').addClass('display_none');
         $('#estructura_edificio').addClass('display_none');
@@ -41,11 +46,12 @@ $(document).ready(function(){
         $('#confirmar_paso1').removeClass('display_none');
         $('#confirmar_paso3').addClass('display_none');
         $('#confirmar_paso4').addClass('display_none');
+        $('#consorcio_agrup').addClass('display_none');
     });
 
     $('#paso_2').on('click',function(){
         $('#titulo_header').html('Alta de consorcio');
-        $('#titulo').html('<h1 class="titles">Ingres&aacute; los datos del consorcio a configurar</h1>');
+        $('#titulo .titles').html('Ingres&aacute; los datos del consorcio a configurar');
         $('#formulario_concorcio').removeClass('display_none');
         $('#formulario_persona').addClass('display_none');
         $('#estructura_edificio').addClass('display_none');
@@ -55,15 +61,17 @@ $(document).ready(function(){
         $('#confirmar_paso1').addClass('display_none');
         $('#confirmar_paso3').addClass('display_none');
         $('#confirmar_paso4').addClass('display_none');
+        $('#consorcio_agrup').addClass('display_none');
     });
 
     $('#paso_3').on('click',function(){
         $('#titulo_header').html('Configuraci&oacute;n de la estructura f&iacute;sica del consorcio');
-        $('#titulo').html('<h1 class="titles">Diagram&aacute; la estructura f&iacute;sica del edificio.</h1>');
+        $('#titulo .titles').html('Diagram&aacute; la estructura f&iacute;sica del edificio.');
         $('#formulario_concorcio').addClass('display_none');
         $('#formulario_persona').addClass('display_none');
         $('#estructura_edificio').removeClass('display_none');
         $('#form_agrupacion').addClass('display_none');
+        $('#consorcio_agrup').addClass('display_none');
 
         $('#confirmar_paso2').addClass('display_none');
         $('.terminos').addClass('display_none');
@@ -79,7 +87,7 @@ $(document).ready(function(){
         $('#titulo_header').html('Alta de consorcio');
         $('#paso_1').addClass('paso_done');
         $('#paso_2').removeClass('paso_grey');
-        $('#titulo').html('<h1 class="titles">Ingres&aacute; los datos del consorcio a configurar</h1>');
+        $('#titulo .titles').html('Ingres&aacute; los datos del consorcio a configurar.');
         $('.terminos').addClass('display_none');
         $('#confirmar_paso1').addClass('display_none');
         $('#confirmar_paso2').removeClass('display_none');
@@ -92,7 +100,7 @@ $(document).ready(function(){
         $('#titulo_header').html('Configuraci&oacute;n de la estructura f&iacute;sica del consorcio');
         $('#paso_2').addClass('paso_done');
         $('#paso_3').removeClass('paso_grey');
-        $('#titulo').html('<h1 class="titles">Diagram&aacute; la estructura f&iacute;sica del edificio.</h1>');
+        $('#titulo .titles').html('Diagram&aacute; la estructura f&iacute;sica del edificio.');
         $('#formulario_concorcio').addClass('display_none');
         $('#confirmar_paso2').addClass('display_none');
         $('#confirmar_paso3').removeClass('display_none');
@@ -105,7 +113,8 @@ $(document).ready(function(){
         $('#titulo_header').html('AGRUPACIÓN E IDENTIFICACIÓN DE UNIDADES FUNCIONALES');
         $('#paso_3').addClass('paso_done');
         $('#paso_4').removeClass('paso_grey');
-        $('#titulo').html('<h1 class="titles">Agrup&aacute; e identific&aacute; las UF con sus consorcistas</h1>');
+        $('#consorcio_agrup').removeClass('display_none');
+        $('#titulo .titles').html('Agrup&aacute; e identific&aacute; las UF con sus consorcistas');
         $('#confirmar_paso3').addClass('display_none');
         $('#confirmar_paso4').removeClass('display_none');
         $('#estructura_edificio').addClass('display_none');
@@ -124,14 +133,78 @@ $(document).ready(function(){
 
 
     /* Funcionalidad formar edificio*/
+    /*Nombre de las torres*/
+    $('#deno_alfa').on('click',function(){
+        var Abc="ABCD";
+        var cant_torres=$('#cant_torres').val();
+        for (i=1;i<=cant_torres;i++){
+          $('#torres_list .tab_'+i).html('Torre '+Abc.charAt(i-1));
+          $('#dibujos_list .dibujo_'+i).html('Torre '+Abc.charAt(i-1));
+          $('#person_torres .tab_person_'+i).html('Torre '+Abc.charAt(i-1));
+          $('#uf_secundarias .sec_torre-'+i).html('Torre '+Abc.charAt(i-1));
+          $('#uf_primarias .prim_torre-'+i).html('Torre '+Abc.charAt(i-1));
+        }
+    });
+
+    $('#deno_num').on('click',function(){
+        var cant_torres=$('#cant_torres').val();
+        for (i=1;i<=cant_torres;i++){
+          $('#torres_list .tab_'+i).html('Torre '+i);
+          $('#dibujos_list .dibujo_'+i).html('Torre '+i);
+          $('#person_torres .tab_person_'+i).html('Torre '+i);
+          $('#uf_secundarias .sec_torre-'+i).html('Torre '+i);
+          $('#uf_primarias .prim_torre-'+i).html('Torre '+i);
+        }
+    });
+    
+    $('.inner_perso').on('blur','.denom_torre',function(){
+        var torre=$(this).attr('id').split('_')[2];
+        var nombre=$('#nom_torre_'+torre).val();
+
+        $('#torres_list .tab_'+torre).html(nombre);
+        $('#dibujos_list .dibujo_'+torre).html(nombre);
+        $('#person_torres .tab_person_'+torre).html(nombre);
+        $('#uf_secundarias .sec_torre-'+torre).html(nombre);
+        $('#uf_primarias .prim_torre-'+torre).html(nombre);
+    });
+
+    $('#checked_torre').on('click',function(){
+      $('#carga_torres').hide();
+      $('#torres_person').attr('checked', false);
+    });
+   
+    /*Paleta de colores*/
+    $('.color-picker').on('click',function() {
+      $('#color-picker-container').fadeIn(200); 
+    });
+    $('#color-picker-container .content').click(function(event) { event.stopPropagation(); });
+    $('#color-picker-container').click(function() { $('#color-picker-container').fadeOut(200); });
+
+    $('.square').on('click',function(){
+        var color=$(this)[0].className.split(' ')[1].split('-')[1];
+
+        $('#encabezado_consorcio .icono').addClass('bcolor-'+color);
+        $('#nombre_edif').addClass('color-'+color);
+
+        $('#consorcio_agrup .icono').addClass('bcolor-'+color);
+        $('#nombre_edif_agrup').addClass('color-'+color);
+    });
+
+
 
     /*al cargar la cantidad de torres, genera las pestañas correspondientes*/
     $('#cant_torres').on('change',function(){
+        var Abc="ABCD";
         var cant_torres=$(this).val();
+        $('.inner_perso').empty();
+        $('.inner_deno').empty();
         
-        if (cant_torres>0){
+        if (cant_torres>1){
           $('#torres_iguales').prop('disabled',false);
           $('#no_torres_iguales').prop('disabled',false);
+        }
+        if (cant_torres==1){
+            $('.torre_1 #habilitar_unidadesFuncionales').addClass('display_none');
         }
         $('#torres_list').empty();
         $('#dibujos_list').empty();
@@ -151,6 +224,11 @@ $(document).ready(function(){
         $('#tab_content').empty();
         $('#dib_content').empty();
         if (cant_torres>0){
+            $('.inner_perso').append('<input type="text" class="denom_torre" id="nom_torre_1">');
+            $('#deno_alfa .inner_deno').append('Torre A ');
+            $('#deno_num .inner_deno').append('Torre 1 ');
+
+
             /*carga los tabs de los forms de datos*/
             $('#torres_list').append('<li class="tab_1 tab_activa tab_navegate">Torre 1</li>');
             $('#tab_content').append('<div class="torre_1 torre_form"></div>');
@@ -165,7 +243,7 @@ $(document).ready(function(){
             $('#person_torres').append('<div class="tab_person_1 person_navegate">torre 1</div>');
 
             /*Carga de los tabs de agrupacion primarias*/
-            $('#uf_primarias .tabs').append('<div class="tab_agrupacion tabprim_activa prim_navegate prim_torre-1">Torre 1</div>');
+            $('#uf_primarias .tabs').append('<div class="tab_agrupacion prim_torre-1 tabprim_activa prim_navegate">Torre 1</div>');
             $('#prim_content').append('<div class="torre_1 prim_form display_none"></div>');
             $('#prim_content .torre_1').html(prim_form);
 
@@ -175,6 +253,10 @@ $(document).ready(function(){
             $('#sec_content .torre_1').html(agrup_form);
 
             for (i=2;i<=cant_torres;i++){
+                $('.inner_perso').append('<input type="text" class="denom_torre" id="nom_torre_'+i+'">');
+                $('#deno_alfa .inner_deno').append('Torre '+Abc.charAt(i-1)+' ');
+                $('#deno_num .inner_deno').append('Torre '+i+' ');
+
                 /*carga los tabs de los forms de datos*/
                 $('#torres_list').append('<li class="tab_'+i+' tab_navegate">Torre '+i+'</li>');
                 $('#tab_content').append('<div class="torre_'+i+' display_none torre_form"></div>');
@@ -542,23 +624,15 @@ $(document).ready(function(){
         $('#uf_secundarias .tab_agrupacion').removeClass('tabsec_activa');
         $('#uf_primarias .tab_agrupacion').removeClass('tabprim_activa');
         $('#uf_primarias .prim_torre-'+nro).addClass('tabprim_activa');
+        $('.sec_form').addClass('display_none');
+        $('.prim_form').addClass('display_none');
+        $('#uf_secundarias .torre_'+nro).removeClass('display_none');
+        $('#uf_primarias .torre_'+nro).removeClass('display_none');
       /* $('#person_dib .dibujo').addClass('display_none');
         $('.dibujoP_'+nro).removeClass('display_none');
         $('.dibujoP_'+nro).removeClass('display_none');
         $('.dibujoP_'+nro+' #uf').removeClass('display_none');*/
         $(this).addClass('tabsec_activa');
-
-      /*  $('#dibujos_list div').removeClass('activa');
-        $('#dib_content .dibujo').addClass('display_none');
-        $('.dibujoT_'+nro).removeClass('display_none');
-        $('.dibujoT_'+nro).removeClass('display_none');
-        $(this).addClass('activa');
-
-        $('#torres_list li').removeClass('tab_activa');
-        $('#tab_content div').addClass('display_none');
-        $('#tab_content .torre_'+nro).removeClass('display_none');
-        $('#tab_content .torre_'+nro+' div').removeClass('display_none');
-        $('.tab_'+nro).addClass('tab_activa');*/
 
     });
     
@@ -568,6 +642,10 @@ $(document).ready(function(){
         $('#uf_primarias .tab_agrupacion').removeClass('tabprim_activa');
         $('#uf_secundarias .tab_agrupacion').removeClass('tabsec_activa');
         $('#uf_secundarias .sec_torre-'+nro).addClass('tabsec_activa');
+        $('.sec_form').addClass('display_none');
+        $('.prim_form').addClass('display_none');
+        $('#uf_secundarias .torre_'+nro).removeClass('display_none');
+        $('#uf_primarias .torre_'+nro).removeClass('display_none');
       /* $('#person_dib .dibujo').addClass('display_none');
         $('.dibujoP_'+nro).removeClass('display_none');
         $('.dibujoP_'+nro).removeClass('display_none');

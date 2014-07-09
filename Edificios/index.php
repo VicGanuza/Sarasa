@@ -42,6 +42,10 @@
                 </div>
             </div>
            <div id="titulo" class="title">
+                <div id="consorcio_agrup" class="display_none">
+                  <div class="icono"> cd </div> 
+                  <div id="nombre_edif_agrup" class="nombre_edificio">Coronel dias 438</div>
+                </div>
                 <h1 class="titles">Bienvenido a <span class="blue">Consorcio</span>abierto.</h1>
                 <h3 class="titles">Ingresa tus datos y empeza a optimizar tu manera de trabajar.</h3>
             </div>
@@ -60,6 +64,8 @@
               <?php
                 include_once('templates/dialog_cargaDenominacion.php');
                 include_once('templates/carga_personalizada.php');
+                include_once('templates/deno_torres.php');
+                include_once('templates/paleta_colores.php');
               ?>              
             </div>
             <div class="confirmacion">
