@@ -339,4 +339,13 @@ form.denom_personal{
 	border-right: none;
 	width: initial;
 }
+.vista_vertodas{
+	background-color: #f7f7f7;
+	position: absolute;
+	opacity: 0.5;
+	height: 941px;
+	left: 997px;
+	width: 1%;
+	float: right;
+}
 }

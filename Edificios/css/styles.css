@@ -1304,3 +1304,15 @@ form.carga_dptos{
 #consorcio_agrup .nombre_edificio{
   border-right: none;
 }
+.vista_vertodas{
+	background-color: #f7f7f7;
+	position: absolute;
+	opacity: 0.5;
+	height: 941px;
+	left: 997px;
+	width: 1%;
+}
+.vertodas_activa{
+	width: 97%;
+	left: 30px;
+}

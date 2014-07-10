@@ -50,6 +50,7 @@
       </div>
     </div>
     <div class="column_dibujo">
+      <div class="vista_vertodas"></div>
       <div id="tabs_dibujo" >
         <div id="dibujos_list" class="encabezado_dibujo">
          <div class="dibujo_1 ver_torre activa dib_navegate"> torre1 </div>
