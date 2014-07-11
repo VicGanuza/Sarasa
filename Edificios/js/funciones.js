@@ -143,6 +143,7 @@ $(document).ready(function(){
           $('#person_torres .tab_person_'+i).html('Torre '+Abc.charAt(i-1));
           $('#uf_secundarias .sec_torre-'+i).html('Torre '+Abc.charAt(i-1));
           $('#uf_primarias .prim_torre-'+i).html('Torre '+Abc.charAt(i-1));
+          $('.nombre_torre_'+i).html('Torre '+Abc.charAt(i-1));
         }
     });
 
@@ -281,7 +282,7 @@ $(document).ready(function(){
                 $('#sec_content .torre_'+i).html(agrup_form);
 
             }
-            $('#torres_list').append('<li><a href="#ver_todas">ver todas</a></li>');
+            $('#torres_list').append('<li class="ver_todas">ver todas</li>');
             $('#dibujos_list').append('<div class="ver_todas"><p style="width:50px; float:left;"> ver todas </p><img src="images/ver_todas_dib.png"></div>');
         }
     });
@@ -1164,6 +1165,14 @@ $(document).ready(function(){
       else{
        $(this).val("Ingrese un espacio comun...");
       }
+    });
+
+    $('#form_edificios').on('click','.ver_todas', function(){
+        $('#vista_todas').addClass('vertodas_activa');
+    });
+
+    $('.hide_vertodas').on('click',function(){
+        $('#vista_todas').removeClass('vertodas_activa');
     });
 
 

@@ -70,7 +70,7 @@
          <div id="edif_dibujo_uf_prim" class="row demo dibujo_edif">
           <div id="edificio_uf_prim" class='largo-total gutter-large columns'></div>
         </div>
-        <div id="numeracion_uf_prim" class="row demo">
+        <div id="numeracion_uf_prim" class="num_class row demo">
           <div id="pisos_num_uf_prim" class="largo-total gutter-large columns"></div>
         </div> 
        </div>        

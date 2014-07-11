@@ -10,7 +10,7 @@
       <div id="edif_dibujo" class="row demo dibujo_edif display_none">
         <div id="edificio" class='largo-total gutter-large columns'></div>
       </div>
-      <div id="numeracion" class="display_none">
+      <div id="numeracion" class="num_class display_none">
         <div id="pisos_num"></div>
       </div>
     </div>

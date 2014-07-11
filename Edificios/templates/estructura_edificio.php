@@ -40,7 +40,7 @@
      <div  id="torres_tabs" class="tabs">
       <ul id="torres_list">
        <li class="tab_1 tab_activa tab_navegate">Torre 1</li>
-       <li><a href="#ver_todas">ver todas</a></li>
+       <li class="ver_todas">ver todas</li>
       </ul>
       <div id="tab_content">
         <div class="torre_1 torre_form">
@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="column_dibujo">
-      <div class="vista_vertodas"></div>
+     
       <div id="tabs_dibujo" >
         <div id="dibujos_list" class="encabezado_dibujo">
          <div class="dibujo_1 ver_torre activa dib_navegate"> torre1 </div>
@@ -68,5 +68,51 @@
         </div>
       </div>
     </div> <!-- column_dibujo -->
+     <div id="vista_todas" class="vista_vertodas">
+        <img  class="hide_vertodas" src="images/hide_icon.png" title="Plegar">
+        <div id="todas_1" class="bloque_torre">
+          <div class="torre_name nombre_torre_1">torre 1</div>
+          <div class="dibujo_torre"></div>
+          <div id="verTodas_num" class="num_class"></div>
+          <div class="funcionales">
+            <div class="bloque loc_com">
+              <img src="images/locales_oscuro.png">
+              <div class="cant">5</div>
+              <div class="">Locales Comeciales</div>
+            </div>
+            <div class="bloque cocheras_cub">
+              <img src="images/cubiertas_oscuro.png">
+              <div class="cant">10</div>
+              <div class="">Cocheras Cubiertas</div>
+            </div>
+            <div class="bloque cocheras">
+              <img src="images/descubiertas_oscuro.png">
+              <div class="cant">15</div>
+              <div class="">Cocheras Descubiertas</div>
+            </div>
+            <div class="bloque espacios">
+              <img src="images/comunes_oscuro.png">
+              <div class="cant">5</div>
+              <div class="">Espacios Comunes</div>
+            </div>
+            <div class="bloque bauleras">
+              <img src="images/bauleras_oscuro.png">
+              <div class="cant">8</div>
+              <div class="">Bauleras</div>
+            </div>
+            <div class="bloque otras_uni">
+              <img src="images/otros_oscuro.png">
+              <div class="cant">1</div>
+              <div class="">Otros elementos</div>
+            </div>
+          </div>
+        </div>
+        <div class="linea_vertical"></div>
+        <div id="todas_2" class="bloque_torre">
+          <div class="torre_name nombre_torre_2">torre 2</div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
   </div>
 </div>
