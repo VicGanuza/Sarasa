@@ -1169,10 +1169,12 @@ $(document).ready(function(){
 
     $('#form_edificios').on('click','.ver_todas', function(){
         $('#vista_todas').addClass('vertodas_activa');
+        $('#vista_todas').removeClass('display_none');
     });
 
     $('.hide_vertodas').on('click',function(){
         $('#vista_todas').removeClass('vertodas_activa');
+        $('#vista_todas').addClass('display_none');
     });
 
 

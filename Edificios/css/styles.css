@@ -1311,7 +1311,7 @@ form.carga_dptos{
 }
 .vista_vertodas{
 	background-color: #f7f7f7;
-	height: 941px;
+	height: 1330px;
 	width: 1%;
 	padding-top: 50px;
 }
@@ -1337,7 +1337,7 @@ form.carga_dptos{
 	float:left;
 }
 .bloque_torre{
-	width: 40%;
+	width: 43%;
 	float: left;
 }
 .dibujo_torre{
@@ -1352,16 +1352,39 @@ form.carga_dptos{
 }
 .linea_vertical{
 	border: 1px solid #e6e6e6;
-	height: 400px;
+	height: 550px;
 	float: left;
 }
 .funcionales{
-	width: 100%;
+	width: 450px;
 	float: left;
 	margin-top: 20px;
+	margin-left: -40px;
 }
 .bloque{
 	float: left;
 	text-align: center;
-	width: 15%;
+	width: 70px;
+}
+.bloque img{
+	width: 30px;
+	margin-bottom: 10px;
+}
+.cant{
+	color: #E68C28;
+	font-weight: bold;
+}
+.bloque_right{
+	margin-left: 80px;
+}
+.linea_horizontal{
+	width: 100%;
+	border: 1px solid #E6E6E6;
+	float: left;
+	margin-left: -35px;
+	margin-top: 20px;
+	margin-bottom: 25px;
+}
+.bloque_down{
+	margin-left: 45px;
 }
