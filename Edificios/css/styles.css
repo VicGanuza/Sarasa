@@ -1385,6 +1385,8 @@ form.carga_dptos{
 	margin-top: 20px;
 	margin-bottom: 25px;
 }
-.bloque_down{
-	margin-left: 45px;
+.inner_all{
+	height: 1330px;
+	float: left;
+	width: 95%;
 }
