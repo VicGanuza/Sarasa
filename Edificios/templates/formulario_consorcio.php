@@ -1,4 +1,4 @@
-<div id="formulario_concorcio" class="display_none">
+<div id="formulario_concorcio">
   <div class="notes">
      <div class="coment1">
        <div><span class="orange">*</span>

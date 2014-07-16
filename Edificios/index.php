@@ -28,17 +28,33 @@
          </div>   
         <div class="main-content" id="main-content"> 
             <div class="menu_pasos">
-                <div id="paso_1" class="pasos" title="Alta de administrador">
+                <div id="paso_1" class="pasos">
                     Paso 1
+                    <div class="help_hover">
+                    <div>Alta de administrador</div>
+                    <img src="images/icon-arrow-down.png">
+                    </div>
                 </div>
-                <div id="paso_2" class="pasos paso_grey" title="Alta de consorcio">
+                <div id="paso_2" class="pasos paso_grey">
                     Paso 2
+                    <div class="help_hover">
+                    <div>Alta de consorcio</div>
+                    <img src="images/icon-arrow-down.png">
+                    </div>
                 </div>
-                <div id="paso_3" class="pasos paso_grey" title="Estructura del consorsio">
+                <div id="paso_3" class="pasos paso_grey">
                     Paso 3
+                    <div class="help_hover">
+                    <div>Estructura del consorcio</div>
+                    <img src="images/icon-arrow-down.png">
+                    </div>
                 </div>
-                <div id="paso_4" class="pasos paso_grey" title="Identificador de UF">
+                <div id="paso_4" class="pasos paso_grey">
                     Paso 4
+                    <div class="help_hover">
+                    <div>Identificador de UF</div>
+                    <img src="images/icon-arrow-down.png">
+                    </div>
                 </div>
             </div>
            <div id="titulo" class="title">

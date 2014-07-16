@@ -1,11 +1,17 @@
-<div id="form_agrupacion" class="display_none"><!-- class="display_none"-->
+<div id="form_agrupacion" class="display_none">
    <h4 class="orange">Agrup&aacute; las UF secundarias arrastr&aacute;ndolas hasta las principales.</h4>
    <p>Para desasociar una UF secundaria de una principal, simplemente arrastras el ícono hacia afuera de la UF primaria, o bien, hacés doble click sobre el ícono en el cuadro de las UF secundarias.</p>
    <div>
        <form class="left">
          <input type="checkbox" name="agrupacion">Habilitar agrupaci&oacute; de UF cruzadas
        </form>
-       <div class="icono_info" title="Esta opci&oacute;n permite agrupar UFs secundarias configuradas en una torre, con UFs principales configuradas en otra."></div>
+       <div class="help">
+       <div class="icono_info"></div>
+       <div class="help_hover aside">
+         <div>Esta opci&oacute;n permite agrupar UFs secundarias configuradas <br> en una torre, con UFs principales configuradas en otra.</div>
+         <img src="images/icon-arrow-right.png">
+       </div>
+       </div>
     </div>
   <div class="cuerpo">
   
@@ -16,10 +22,6 @@
      <hr>
      <div id="uf_secundarias"> 
      <div  class="tabs">
-      <!--<div class="tab_agrupacion tabsec_activa sec_torre-1">Torre 1</div>
-      <div class="tab_agrupacion sec_torre-2">Torre 2</div>
-      <div class="tab_agrupacion sec_torre-3">Torre 3</div>
-      <div class="tab_agrupacion sec_torre-4">Torre 4</div>-->
      </div>
 
      <div id="sec_content"> 
@@ -28,24 +30,30 @@
          <div class="logo">
           <img src="images/Logo_techadas.png">
          </div>
+         <div class="vista_comercios">
          <h6>Cocheras Cubiertas</h6>
-         <div id="list_cc" class="vista_comercios"></div>
+         <div id="list_cc"></div>
+         </div>
          <hr>
         </div>
         <div id="coch_desc" class="display_none">
          <div class="logo">
           <img src="images/Logo_Destechadas.png">
          </div>
+         <div class="vista_comercios">
          <h6>Cocheras Descubiertas</h6>
-         <div id="list_dc" class="vista_comercios"></div>
+         <div id="list_dc"></div>
+         </div>
          <hr>
         </div>
         <div id="baulera" class="display_none">
          <div class="logo">
           <img src="images/Logo_baulera.png">
-         </div>  
+         </div>
+         <div class="vista_comercios">  
          <h6>Bauleras</h6>
-         <div id="list_b" class="vista_comercios"></div>
+         <div id="list_b"></div>
+        </div>
         </div>     
       </div>
      </div>           
@@ -59,10 +67,6 @@
       <hr>
       <div id="uf_primarias">   
       <div class="tabs">
-       <!--<div class="tab_agrupacion tabprim_activa prim_torre-1">Torre 1</div>
-       <div class="tab_agrupacion prim_torre-2">Torre 2</div>
-       <div class="tab_agrupacion prim_torre-3">Torre 3</div>
-       <div class="tab_agrupacion prim_torre-4">Torre 4</div>-->
       </div>
        
       <div id="prim_content">  

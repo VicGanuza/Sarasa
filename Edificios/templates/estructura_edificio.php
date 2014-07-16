@@ -1,9 +1,13 @@
-<div id="estructura_edificio" ><!--  class="display_none"-->
+<div id="estructura_edificio" class="display_none">
   <div id="encabezado_consorcio">
     <div class="icono"> cd </div> 
     <div id="nombre_edif" class="nombre_edificio">Coronel dias 438</div>
     <div class="color-picker">
-      <img src="images/icono_colores.png">   
+      <img src="images/icono_colores.png"> 
+      <div class="help_hover aside">
+       <div>Elegí un color para identificar este consorcio</div>
+       <img src="images/icon-arrow-right.png">
+      </div>  
     </div>           
   </div>
   <div id="title_torres" class="franja_gris_claro">
@@ -69,11 +73,20 @@
       </div>
     </div> <!-- column_dibujo -->
      <div id="vista_todas" class="vista_vertodas display_none">
-        <img  class="hide_vertodas" src="images/hide_icon.png" title="Plegar">
+        <div class="hide_vertodas">
+        <img src="images/hide_icon.png">
+        <div class="help_hover">
+         <div>Plegar</div>
+         <img src="images/icon-arrow-down.png">
+       </div>
+        </div>
         <div class="inner_all">
-          <div id="todas_1" class="bloque_torre">
-          <div class="torre_name nombre_torre_1">torre 1</div>
+          <div id="todas" class="bloque_torre">
+          <div class="torre_name">torre 1</div>
           <div class="dibujo_torre"></div>
+          <div id="edif_dibujo_todas" class="row demo dibujo_edif display_none">
+           <div id="edificio_todas" class='largo-total gutter-large columns'></div>
+          </div>
           <div id="verTodas_num" class="num_class">
           </div>
           <div class="funcionales">
@@ -92,7 +105,7 @@
               <div class="cant"></div>
               <div class="">Cocheras Descubiertas</div>
             </div>
-            <div class="bloque espacios display_none">
+            <div class="bloque espacio_comun_todas display_none">
               <img src="images/comunes_oscuro.png">
               <div class="cant"></div>
               <div class="">Espacios Comunes</div>
@@ -102,13 +115,18 @@
               <div class="cant"></div>
               <div class="">Bauleras</div>
             </div>
-            <div class="bloque otras_uni display_none">
+            <div class="bloque otros_espacios_todas display_none">
               <img src="images/otros_oscuro.png">
               <div class="cant"></div>
               <div class="">Otros elementos</div>
             </div>
            </div>
+           <div class="linea_horizontal display_none"></div>
           </div>
+        </div>
+        <div class="inner_all_left">          
+        </div>
+        <div class="inner_all_right">          
         </div>
      </div>
   </div>
