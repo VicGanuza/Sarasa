@@ -621,14 +621,14 @@ form.carga_dptos{
 	margin-top: -10px;
 	padding-top: 12px;
 	overflow: auto;
-	min-width: 570px;
+	min-width: 613px;
 }
 .content_whitegrey{
 	background-color: #F7F7F7;
 	margin-top: -12px;
 	padding-top: 14px;
 	overflow: auto;
-	width: 510	px;
+	width: 555px;
 }
 #ingr_pers_d2{
 	display: none;
