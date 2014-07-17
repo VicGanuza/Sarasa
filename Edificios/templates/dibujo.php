@@ -69,7 +69,7 @@
     </div>
     <div id="otros_espacios_dib" class="display_none">
       <div class="logo" >
-        <img src="images/espacios_comunes.png">
+        <img src="images/otros_elementos.png">
       </div>
       <div  class="vista_comercios">
         <h6>Otras Unidades</h6>
