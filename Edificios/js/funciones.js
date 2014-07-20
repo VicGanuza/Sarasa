@@ -1,6 +1,15 @@
 $(document).ready(function(){
 
     /*tooltips*/
+    $('.formulario').on('mouseenter','.tooltips',function(event){
+        $("#flotante").html($(this).attr("content"));
+        $("#flotante").css({left:event.pageX+5, top:event.pageY+5, display:"block"});
+    });
+
+    $(".formulario").on('mouseleave','.tooltips',function(event){
+        // Escondemos el div flotante
+        $("#flotante").hide();
+    });
 
 
     var nro_fila = 1;
@@ -38,7 +47,7 @@ $(document).ready(function(){
 
     /*Click en los pasos para poder modificar o corregir pasos anteriores*/
     $('#paso_1').on('click',function(){
-        $('#titulo_header').html('Alta de administrador');
+        $('#titulo_header .content').html('Alta de administrador');
         $('#titulo h1').html('Bienvenido a <span class="blue">Consorcio</span>abierto.');
         $('#titulo h3').html('Ingresa tus datos y empeza a optimizar tu manera de trabajar.');
 
@@ -55,7 +64,7 @@ $(document).ready(function(){
     });
 
     $('#paso_2').on('click',function(){
-        $('#titulo_header').html('Alta de consorcio');
+        $('#titulo_header .content').html('Alta de consorcio');
         $('#titulo h1').html('Ingres&aacute; los datos del consorcio a configurar.');
         $('#titulo h3').html('');
         $('#formulario_concorcio').removeClass('display_none');
@@ -71,7 +80,7 @@ $(document).ready(function(){
     });
 
     $('#paso_3').on('click',function(){
-        $('#titulo_header').html('Configuraci&oacute;n de la estructura f&iacute;sica del consorcio');
+        $('#titulo_header .content').html('Configuraci&oacute;n de la estructura f&iacute;sica del consorcio');
         $('#titulo h1').html('Diagram&aacute; la estructura f&iacute;sica del edificio.');
         $('#titulo h3').html('');
         $('#formulario_concorcio').addClass('display_none');
@@ -91,7 +100,7 @@ $(document).ready(function(){
 
 
     $('#confirmar_paso1').on('click',function(){
-        $('#titulo_header').html('Alta de consorcio');
+        $('#titulo_header .content').html('Alta de consorcio');
         $('#paso_1').addClass('paso_done');
         $('#paso_2').removeClass('paso_grey');
         $('#titulo h1').html('Ingres&aacute; los datos del consorcio a configurar.');
@@ -106,7 +115,7 @@ $(document).ready(function(){
 
 
     $('#confirmar_paso2').on('click',function(){
-        $('#titulo_header').html('Configuraci&oacute;n de la estructura f&iacute;sica del consorcio');
+        $('#titulo_header .content').html('Configuraci&oacute;n de la estructura f&iacute;sica del consorcio');
         $('#paso_2').addClass('paso_done');
         $('#paso_3').removeClass('paso_grey');
         $('#titulo h1').html('Diagram&aacute; la estructura f&iacute;sica del edificio.');
@@ -120,7 +129,7 @@ $(document).ready(function(){
 
 
     $('#confirmar_paso3 img').on('click',function(){
-        $('#titulo_header').html('AGRUPACIÓN E IDENTIFICACIÓN DE UNIDADES FUNCIONALES');
+        $('#titulo_header .content').html('AGRUPACIÓN E IDENTIFICACIÓN DE UNIDADES FUNCIONALES');
         $('#paso_3').addClass('paso_done');
         $('#paso_4').removeClass('paso_grey');
         $('#consorcio_agrup').removeClass('display_none');
@@ -465,7 +474,7 @@ $(document).ready(function(){
 
         /* Agrega los pisos del edificio y los nros*/
         for (i=cantidad_pisos; i>0; i--){
-            $('.dibujoT_'+nro+' #uf_cant').append('<div class="help"> <input type="text" name="piso_'+i+'" size="5" maxlength="50" class="largo-total column piso cant_deptos"><div class="help_hover"><div>Ingresá la cantidad de UF para este piso</div><img src="images/icon-arrow-down.png"></div></div>');
+            $('.dibujoT_'+nro+' #uf_cant').append('<input type="text" name="piso_'+i+'" size="5" maxlength="50" class="largo-total column piso cant_deptos tooltips" content="Ingresá la cantidad de UF para este piso">');
 			$('.dibujoT_'+nro+' #edificio').append('<div id="piso_nro_'+i+'" class="largo-total column piso"></div>');
             $('#uf_primarias .torre_'+nro+' #edificio_uf_prim').append('<div id="uf_prim_piso_nro_'+i+'" class="largo-total column piso"></div>');
             $('.dibujoT_'+nro+' #pisos_num').append('<div id="piso_'+i+'" class="nro_piso">'+i+'</div>');

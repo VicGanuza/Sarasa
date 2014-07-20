@@ -11,9 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/styles.css"> 
+        <link rel="stylesheet" href="css/fonts.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="css/foundation.css"> 
         <link rel="stylesheet" href="css/demo.css"> 
-        <link rel="stylesheet" href="css/bootstrap.css"> 
+        <link rel="stylesheet" href="css/bootstrap.css">
 
 	</head>
 
@@ -22,11 +23,15 @@
           <div class="content">
             <img src="images/logo.png"/> <!-- Aca iria el logo del Consorcio Abierto -->
           </div>         
-        </header>		
+        </header>	
+        <!-- En este div se muestra la capa emergente -->
+        <div id="flotante"></div>	
         <div id="titulo_header" class="header">
-         Alta de Administrador
+             <div class="content">
+             Alta de Administrador
+             </div>
          </div>   
-        <div class="main-content" id="main-content"> 
+        <div class="main-content content" id="main-content"> 
             <div class="menu_pasos">
                 <div id="paso_1" class="pasos">
                     Paso 1
