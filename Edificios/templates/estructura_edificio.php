@@ -3,7 +3,7 @@
     <div class="icono"> cd </div> 
     <div id="nombre_edif" class="nombre_edificio">Coronel dias 438</div>
     <div class="color-picker">
-      <img src="images/icono_colores.png"> 
+      <img src="images/sprite/img_07.jpg"> 
       <div class="help_hover aside">
        <div>Elegí un color para identificar este consorcio</div>
        <img src="images/icon-arrow-right.png">
@@ -11,7 +11,7 @@
     </div>           
   </div>
   <div id="title_torres" class="franja_gris_claro">
-    <img src="images/icono_torres.png">
+    <img src="images/sprite/img_08.jpg">
     <div> Torres</div>
   </div>
   <!-- Configuracion del edificio -->
@@ -19,7 +19,7 @@
     <div class="ing_torres">
      <div class="dato_input small_input">
       Cant. de torres
-      <select id="cant_torres">
+      <select id="cant_torres" class="input_small">
         <option value="0"></option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -40,7 +40,7 @@
      </div>
     </div>  
     <div class="columna_ingreso">
-     <h4 class="titles orange"> > Seleccion&aacute; la torre que queres configurar</h4>
+     <h4> > Seleccion&aacute; la torre que queres configurar</h4>
      <div  id="torres_tabs" class="tabs">
       <ul id="torres_list">
        <li class="tab_1 tab_activa tab_navegate">Torre 1</li>
@@ -59,8 +59,8 @@
         <div id="dibujos_list" class="encabezado_dibujo">
          <div class="dibujo_1 ver_torre activa dib_navegate"> torre1 </div>
          <div class="ver_todas">
-          <p style="width:50px; float:left"> ver todas </p>
-          <img src="images/ver_todas_dib.png">
+          <div style="width:50px; float:left"> ver todas </div>
+          <img src="images/sprite/img_17.png">
          </div>
         </div>
         <div id="dib_content">
@@ -72,9 +72,9 @@
         </div>
       </div>
     </div> <!-- column_dibujo -->
-     <div id="vista_todas" class="vista_vertodas display_none">
+     <div id="vista_todas" class="vista_vertodas">
         <div class="hide_vertodas">
-        <img src="images/hide_icon.png">
+        <img src="images/sprite/img_32.png">
         <div class="help_hover">
          <div>Plegar</div>
          <img src="images/icon-arrow-down.png">

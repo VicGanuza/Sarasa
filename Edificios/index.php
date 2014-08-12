@@ -12,21 +12,23 @@
 
         <link rel="stylesheet" href="css/styles.css"> 
         <link rel="stylesheet" href="css/fonts.css" type="text/css" media="screen" />
-        <link rel="stylesheet" href="css/foundation.css"> 
         <link rel="stylesheet" href="css/demo.css"> 
-        <link rel="stylesheet" href="css/bootstrap.css">
-
+        <!--
+        <link rel="stylesheet" href="css/bootstrap.css"> 
+        
+        <link rel="stylesheet" href="css/foundation.css"> 
+-->
 	</head>
 
     <body>  
 		<header>
           <div class="content">
-            <img src="images/logo.png"/> <!-- Aca iria el logo del Consorcio Abierto -->
+            <img src="images/logo.png"/>
           </div>         
         </header>	
         <!-- En este div se muestra la capa emergente -->
         <div id="flotante"></div>	
-        <div id="titulo_header" class="header">
+        <div id="titulo_header" class="header subtitles">
              <div class="content">
              Alta de Administrador
              </div>
@@ -57,7 +59,7 @@
                 <div id="paso_4" class="pasos paso_grey">
                     Paso 4
                     <div class="help_hover">
-                    <div>Identificador de UF</div>
+                    <div>Identificación de UF</div>
                     <img src="images/icon-arrow-down.png">
                     </div>
                 </div>
@@ -67,11 +69,12 @@
                   <div class="icono"> cd </div> 
                   <div id="nombre_edif_agrup" class="nombre_edificio">Coronel dias 438</div>
                 </div>
-                <h1 class="titles">Bienvenido a <span class="blue">Consorcio</span>abierto.</h1>
-                <h3 class="titles">Ingresa tus datos y empeza a optimizar tu manera de trabajar.</h3>
+                <div class="titles">Bienvenido a <span class="blue">Consorcio</span>abierto.</div>
+                <div class="subtitles">Ingresa tus datos y empeza a optimizar tu manera de trabajar.</div>
             </div>
             <div class="contactenos">
-                <img src="images/icon_contact.png">
+                <img src="images/sprite/contactanos.jpg">
+                <img src="images/sprite/img_06.png" class="flecha"> 
             </div>
         	<div class="formulario">
               <?php
@@ -87,6 +90,8 @@
                 include_once('templates/carga_personalizada.php');
                 include_once('templates/deno_torres.php');
                 include_once('templates/paleta_colores.php');
+                include_once('templates/dialog_contacto.php');
+                include_once('templates/terminos.php');
               ?>              
             </div>
             <div class="confirmacion">

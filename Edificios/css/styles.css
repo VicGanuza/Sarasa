@@ -3,7 +3,7 @@ html, body {
     width: 100%; 
     font-size: 12px !important;
     color: #4D4D4D !important;
-	font-family: "Lucida Grande", sans-serif !important;
+	font-family: "LucidaGrandeRegular" !important;
 }
 header{
 	background-color: #F7F7F7;
@@ -14,6 +14,7 @@ hr{
 	border-top: 1px dashed #a0a0a0 !important;
 	border-bottom: 1px solid #FFFFFF !important;
 	margin-left: -20px !important;
+	margin-bottom:20px;
 }
 h6{
 	margin-bottom: 3px !important;
@@ -38,10 +39,12 @@ footer{
 	font-size: 10px;
 	color: #F7F7F7;
 	padding-top: 15px;
+	z-index:1000;
 }
 footer ul{
 	list-style: none;
 	float: left;
+	margin-top:0px;
 }
 footer li{
 	float: left;
@@ -52,6 +55,7 @@ footer li{
 }
 footer a{
 	color: #f7f7f7;
+	float:left;
 }
 footer a:hover{
 	color:#f7f7f7;
@@ -59,8 +63,8 @@ footer a:hover{
 }
 
 /*--------------------------------Helpers------------------------------------------------------*/
-.margin-top_20{
-	margin-top: 20px;
+.margin-top_17{
+	margin-top: 17px;
 }
 .margin_right-12{
 	margin-right: 12px;
@@ -80,20 +84,20 @@ footer a:hover{
 .left{
 	float:left;
 }
+.right{
+	float:right;
+}
 .button_20{
 	margin-bottom: 20px;
 }
 .top_20{
 	margin-top: 20px;
 }
-.top_40{
-	margin-top: 40px;
-}
 .button_50{
 	margin-bottom: 50px;
 }
 .display_none{
-	display: none;
+	display: none !important;
 }
 .display_block{
 	display: block;
@@ -101,43 +105,89 @@ footer a:hover{
 .right_15{
 	margin-right: 15%;
 }
-.titles{
-	font-style: italic;
-	font-family: 'HNBold';
+.table_row{
+	display: table-row;
+}
+.vertical_aling{
+	display:table-cell;
+	vertical-align: middle;
+}
+.pointer{
+	cursor:pointer;
+}
+/*--------------------titulos------------------------------------------------------------------------------*/
+.title{
+	float: left;
 	text-transform: uppercase;
+	padding-left: 30px;
+	padding-top:20px;
+	color: #808080;
+	margin-bottom:10px;
+}
+.titles{
+	font-family: 'HNRegular';
 	font-size: 24px;
  }
-
+ .subtitles{
+ 	font-family:'HNLight';
+ 	font-size: 17px;
+	line-height: 40px;
+ }
 /*------------------------------------------ Inputs & Selects----------------------------------------------*/
 input[name="raz_social"]{
 	width: 100%;
+}
+input[type="radio"]{
+	margin: -3px 5px 0 6px;
+	-webkit-appearance: checkbox;
+}
+input[type="text"]:focus{
+	border: 2px solid #E68C28;
+}
+input[type="text"], input[type="password"]{
+	height: 30px;
+	border: 1px solid #57ACCE;
+	color: #808080;
+	width:175px;
 }
 .div_input input[type="radio"], #carga_personalizada input[type="radio"], #denominacion_dpto input[type="radio"], #carga_torres input[type="radio"]{
 	margin: -3px 5px 0 6px;
 	-webkit-appearance: checkbox;
 }
-.dato_input input[type="text"],.dato_mail input[type="text"], .dato_mail input[type="password"]{
-	height: 30px;
-	margin-bottom: 0px; 
-	border-radius: 0px;
-	border-color: #57ACCE;	
-	color: #808080;
+.top_dialog input[type="text"]{
+	margin-top: 10px;
+	margin-left: 18px;
 }
-.dato_input input[type="text"]:focus, .dato_mail input[type="text"]:focus, .dato_mail input[type="password"]:focus{
-	border-color: #E68C28;
-	color: #57ACCE;
-	background-color: #FFFFFF;
+.input_inside input[type="text"]{
+	margin-left:0px;
+}
+#ingr_pers_d2 input[type="text"]{
+	margin-top: 10px;
+	margin-left: 18px;
+	width: 100px;
+}
+#espacio_comun input[type="text"], #otros_espacios input[type="text"]{
+	width: 50%;
+	height: 40px;
+	margin-top: 19px;
+	margin-right: 20px;
+}
+#uf_cant input[type="text"]{
+	border-radius: 0px;
+	text-align: center;
+}
+#carga_torres input[type="text"]{
+	margin-left: 9px;
 }
 .dato_input input[type="checkbox"]{
 	-webkit-appearance: radio;
-	margin-top: 20px;
+	margin-top: 44px;
 	width: 14px;
 	height: 30px;
+	float:left;
 }
  #form_agrupacion input[type="checkbox"]{
 	margin-right: 10px;
-	width: 19px;
-	height: 30px;
 	margin-top: 0px;
 }
 .terminos input[type="checkbox"]{
@@ -145,13 +195,14 @@ input[name="raz_social"]{
 }
 
 .formulario .formulario_altas select{
-	width: 100%;
+	width: 177px;
 	margin-bottom: 2px;
-	height: 80%;
+	height: 34px;
 	border-radius: 0;
+	color:#57acce;
 }
 #form_edificios input[type="checkbox"]{
-	margin-top: -3px;
+	margin-top: -6px;
 	-webkit-appearance: checkbox;
 	margin-left: 10px;
 	margin-right: 10px;
@@ -163,19 +214,7 @@ input[name="raz_social"]{
 	width: 60px !important;
 	color:  #57ACCE;
 }
-#ingr_pers_d2 input[type="text"]{
-	border: 1px solid #57ACCE;
-	margin-top: 10px;
-	height: 30px;
-	margin-left: 18px;
-	width: 100px;sx
-}
-#espacio_comun input[type="text"], #otros_espacios input[type="text"]{
-	width: 50%;
-	height: 40px;
-	margin-top: 19px;
-	margin-right: 20px;
-}
+
 .top_dialog select{
 	width:70px;
 	margin-top: 10px;
@@ -183,22 +222,14 @@ input[name="raz_social"]{
 	margin-right: 50px;
 	float: left;
 	color: #57ACCE;
+	height:30px;
 }
 #checked input[type="radio"]{
 	border: 1px solid #E68C28;
 	width: 30px;
 	height: 30px;
 }
-#uf_cant input[type="text"]{
-	border-radius: 0px;
-	text-align: center;
-}
-#carga_torres input[type="text"]{
-	width: 40%;
-	float: left;
-	height: 25px;
-	margin-left: 9px;
-}
+
 /*-----------------------------------------------------------------------------------------------*/
 header img{
 	margin-left: 30px;
@@ -213,12 +244,9 @@ header img{
 	background-color: #57ACCE;
 	width: 100%;
 	height: 36px;
-	font-family: 'Helvetica Neue';
 	color: #ffffff;
 	text-transform: uppercase;
-	font-size: 17px;
-	padding-top: 10px;
-	padding-left: 60px;
+	padding-left: 30px;
 }
 .main-content{
 	padding-top: 1%;
@@ -233,13 +261,11 @@ header img{
 	text-transform: uppercase;
 	border: 1px solid #E68C28;
 	color: #E68C28;
-	width: 100px;
+	width: 65px;
+	text-align:center;
 	float: left;
-	height: 34px;
 	margin-left: 29px;
 	padding: 8px;
-	padding-left: 24px;
-	font-size: 12px;
 }
 .paso_grey{
 	color: #E6E6E6;
@@ -250,18 +276,35 @@ header img{
 	border: 1px solid #CCCCCC;
 	background-color: #E6E6E6;
 }
-.title{
-	float: left;
-	text-transform: uppercase;
-	font-style: italic;
-	padding-left: 30px;
-	color: #808080;
+.paso_accesible{
+	cursor:pointer;
 }
+
 .contactenos{
 	float: right;
 	margin-right: 1%;
 	margin-top: -25px;
 	margin-bottom: 20px;
+	cursor:pointer;
+}
+.input_contact{
+	width:240px !important;
+}
+.input_inside{
+	float:right;
+	width:177px;
+}
+.input_contact img{
+	margin-top: 40px;
+	margin-left: 10px;
+	margin-right: 10px;
+	float:left;
+}
+.input_contact select{
+	width: 120px;
+	height: 30px;
+	margin-top: 0px;
+	margin-left: 0px;
 }
 .formulario{
 	box-shadow: 0px 0px 25px 3px #E6E6E6;
@@ -272,23 +315,22 @@ header img{
 	padding-left: 30px;
 	background-color: #F7F7F7;
 	float: left;
-	width: 100%;
+	width: 970px;
 	border-top: 1px solid #E6E6E6;
 	border-bottom: 1px solid #E6E6E6;
 }
+.coments{
+	padding-top: 9px;
+	width:470px;
+}
 .coment1{
 	color: #808080;
-	padding-top: 9px;
-	padding-left: 20px;
 	border-right: 1px solid #E6E6E6;
-	width: 40%;
 	float: left;
+	padding-bottom:9px;
 }
 .coment2{
 	color: #E68C28;
-	padding-top: 9px;
-	margin-right: 18%;
-	width: 40%;
 	float: right;
 }
 .formulario_altas{
@@ -308,15 +350,22 @@ header img{
 	margin-left: 30px;
 	float: left;
 }
+.datos{
+	width: 967px;
+	height: 80px;
+}
+.datos_large{
+	height:100px;
+}
 .dato_input{
-	width: 20%;
+	width: 200px;
 	float: left;
-	margin-right: 3%;
-	margin-top: 20px;
+	margin-right: 15px;
 }
 .agregar_foto{
 	margin-top: 40px;
 	margin-bottom: 30px;
+	display: table;
 }
 .foto_usuario{
 	width: 60px;
@@ -333,15 +382,18 @@ header img{
 	margin-bottom: 20px;
 }
 .dato_mail{
-	width: 27%;
+	width: 300px;
 	float: left;
-	margin-right: 3%;
 }
-.dato_razonSoc{
-	float: right;
-	width: 88%;
+.input_large{
+	width:280px !important;
 }
-
+.input_small{
+	width:60px !important;
+}
+.input_extralarge{
+	width:350px !important;
+}
 #foto{
 	width: 100px;
 	border: 1px solid black;
@@ -351,10 +403,10 @@ header img{
 	margin-right: 4px;
 }
 .small_input{
-	width: 5%;
+	width: 80px;
 }
 .large_input{
-	width: 30%;
+	width: 280px;
 }
 .terminos{
 	float: left;
@@ -364,6 +416,7 @@ header img{
 .confirmar{
 	float: left;
 	margin-left: 30px;
+	cursor:pointer;
 }
 
 .legales{
@@ -398,7 +451,7 @@ header img{
 	-moz-box-shadow: 10px 2px 14px 4px #E6E6E6;
 	box-shadow: 10px 2px 14px 4px #E6E6E6;
 	float: left;
-	width: 100%;
+	width: 970px;
 	background-color: #ffffff;
 }
 #encabezado_consorcio img{
@@ -407,7 +460,7 @@ header img{
 	float: left;
 }
 .nombre_edificio{
-	width: 20%;
+	width: 300px;
 	float: left;
 	border-left: 1px solid #dcdcdc;
 	padding-left: 12px;
@@ -421,7 +474,7 @@ header img{
 }
 .franja_gris_claro{
 	float: left;
-	width: 100%;
+	width: 97%;
 	height: 50px;
 	background-color: #f7f7f7;
 	text-transform: uppercase;
@@ -443,7 +496,7 @@ header img{
 	border-right: 1px solid #dcdcdc;
 }
 #form_edificios .small_input{
-	width: 9%;
+	width: 90px;
 	margin-top: 25px;
 }
 .dato_input.bordesDI{
@@ -457,18 +510,26 @@ header img{
 	margin-top: 34px;
 }
 .ing_torres{
-	width: 100%;
+	width: 970px;
 	border-bottom: 1px solid #E6E6E6;
 	height: 90px;
 	margin-left: -30px;
 	padding-left: 30px;
 }
+.columna_ingreso h4{
+	font-family: 'HNLight';
+	font-size: 14px;
+	line-height: 40px;
+	text-transform: uppercase;
+	color: #E68C28;
+}
 .tabs ul{
 	list-style: none;
 	border-bottom: 2px solid #E68C28;
-	height: 42px;
+	height: 37px;
 	margin-left: -30px;
 	margin-bottom: 0px;
+	padding-left:0px;
 }
 .tabs li{
 	background-color: #f1f1f1;
@@ -476,7 +537,8 @@ header img{
 	text-transform: uppercase !important;
 	padding: 10px;
 	float: left;
-	margin-left: 30px;
+	margin-left: 15px;
+	cursor:pointer;
 }
 .tabs li.tab_activa{
 	background-color: #E68C28;
@@ -486,9 +548,8 @@ header img{
 	margin-left: -30px;
 }
 .columna_ingreso{
-	width: 64%;
+	width: 500px;
 	float: left;
-	padding-left: 30px;
 }
 .div_input{
 	padding-left: 33px;
@@ -501,8 +562,8 @@ header img{
     background-color: #FFFFFF;
 }
 .cuantos{
-	float: left;
-	width: 80%;
+	/*float: left;
+	width: 80%;*/
 	margin-top: -5px;
 
 }
@@ -510,27 +571,20 @@ header img{
 	float: left;
 	margin-right: 15px;
 	border-right: 1px solid #E6E6E6;
+	padding-top:5px;
 }
-form.denom_personal{
+.personalizada{
 	float: left;
-	margin-left: 22%;
+	margin-left: 240px;
 	border-left: 1px solid #E6E6E6;
 	padding-left: 12px;
-	border-right: none;
-	width: initial;
+	border-right: none !important;
 	margin-top: -30px;
-}
-form.carga_dptos{
-	margin-top: -30px;
-	border-left: 1px solid #E6E6E6;
-	padding-left: 12px;
-	border-right: none;
-	width: initial;
 }
 .column_dibujo{
-	width: 35%;
+	width: 450px;
 	margin-bottom: -20px;
-	min-height: 1023px;
+	min-height: 1138px;
 	padding-top: 20px;
 	padding-left: 20px;
 	background-color: #FAFAFA;
@@ -542,8 +596,8 @@ form.carga_dptos{
 .column_dibujo .ver_torre{
 	text-transform: uppercase;
 	color: #808080;
-	width: 80px;
-	height: 40px;
+	width: 70px;
+	height: 30px;
 	float: left;
 	border: 1px solid #808080;
 	text-align: center;
@@ -558,6 +612,7 @@ form.carga_dptos{
 	text-transform: uppercase;
 	color: #E68C28;
 	float: right;
+	cursor:pointer;
 }
 .dibujo{
 	margin-bottom: 50px;
@@ -565,7 +620,7 @@ form.carga_dptos{
 }
 .encabezado_dibujo{
 	float: left;
-	width: 84%;
+	width: 400px;
 	margin-bottom: 20px;
 	margin-left: 15px;
 }
@@ -582,7 +637,7 @@ form.carga_dptos{
 	cursor:initial;
 	display:none;
 	padding:5px;
-	left: -80px;
+	left: 200px;
 	background: #fff;
 	border: 2px solid #d3d3d3;
 	position: absolute; 
@@ -606,6 +661,7 @@ form.carga_dptos{
 	padding-top: 12px;
 	overflow: auto;
 	min-width: 613px;
+	min-height:60px;
 }
 .content_whitegrey{
 	background-color: #F7F7F7;
@@ -613,6 +669,7 @@ form.carga_dptos{
 	padding-top: 14px;
 	overflow: auto;
 	width: 555px;
+	min-height:75px;
 }
 #ingr_pers_d2{
 	display: none;
@@ -633,7 +690,7 @@ form.carga_dptos{
 }
 .icono{
 	width: 30px;
-	height: 30px;
+	height: 24px;
 	float: left;
 	background-color: #4d4d4d;
 	text-align: center;
@@ -653,23 +710,25 @@ form.carga_dptos{
 #edificio.demo.columns{
 	background-color: white;
 }
-.demo .gutter-large.columns .column{
+.demo .gutter-large.columns .column, .dibujo_edif .columns .column{
 	color:#A0A0A0;
 }
 #carga_personalizada .demo .gutter-large.columns .column.piso{
 	border: 1px solid #A0A0A0;
 }
-.demo .gutter-large.columns .column.piso{
+.demo .gutter-large.columns .column.piso, .dibujo_edif .columns .column.piso{
 	margin:0;
 	padding: 0;
+	height:30px;
 }
 #carga_personalizada .gutter-large .column.piso .column.dpto{
 	border:1px solid #A0A0A0;
 }
-.gutter-large .column.piso .column.dpto{
+.gutter-large .column.piso .column.dpto, .dibujo_edif .column.piso .column.dpto{
 	margin: 0;
 	padding: 0;
 	text-align: center;
+	height:29px;
 }
 #edificio, #uf_cant, #pisos_num, #edificio_uf_prim, #pisos_num_uf_prim, #edificio_todas {
 	padding: 0;
@@ -719,7 +778,7 @@ form.carga_dptos{
 	border: 1px solid #b8b8b8;
 	border-radius: 100%;
 	width: 25px;
-	height: 25px;
+	height: 22px;
 	margin-bottom: 5px;
 	margin-top: 5px;
 	text-align: center;
@@ -739,7 +798,6 @@ form.carga_dptos{
 #edif_dibujo, #edif_dibujo_uf_prim{
 	margin-left: 24px;
 	margin-right: 25px;
-	width: 65%;
 	float:left;
 }
 #numeracion, #numeracion_uf_prim, .num_class{
@@ -754,15 +812,15 @@ form.carga_dptos{
 }
 .columna_izquierda{
 	float: left;
-	width: 49%;
+	width: 425px;
 	border: 1px solid #CCCCCC;
-	padding-left: 30px;
+	padding-left: 20px;
 }
 .columna_derecha{
-	width: 49%;
-	float: left;
+	width: 460px;
+	float: right;
 	border: 1px solid #CCCCCC;
-	padding-left: 30px;
+	padding-left: 20px;
 }
 .encabezado{
 	width: 100%;
@@ -776,47 +834,47 @@ form.carga_dptos{
 @media only screen and (min-width: 768px) {
 .dpto-12 {
     position: relative;
-    width: 8.33333%; 
+    width: 23px; 
 }
 .dpto-11 {
     position: relative;
-    width: 9.090909%; 
+    width: 25.2px; 
 }
 .dpto-10 {
     position: relative;
-    width: 10%; 
+    width: 28px; 
 }
 .dpto-9 {
   position: relative;
-  width: 11.11111%; 
+  width: 31.3px; 
 }
 .dpto-8{
   position: relative;
-  width: 12.5%; 
+  width: 35.5px; 
 }
 .dpto-7 {
   position: relative;
-  width: 14.28571%; 
+  width: 13.6%; 
 }
 .dpto-6 {
   position: relative;
-  width: 16.66666%; 
+  width: 48px; 
 }
 .dpto-5 {
   position: relative;
-  width: 20%; 
+  width: 58px; 
 }
 .dpto-4 {
   position: relative;
-  width: 25%; 
+  width: 73px; 
 }
 .dpto-3 {
   position: relative;
-  width: 33.33333%; 
+  width: 98px; 
 }
 .dpto-2 {
   position: relative;
-  width: 50%; 
+  width: 148px; 
 }
 .dpto-1{
 	position: relative;
@@ -827,7 +885,7 @@ form.carga_dptos{
   width: 100%; 
 }
 .vista_comercios {
-	width: 85%;
+	width: 375px;
 	float: right;
 	margin-top: -15px;
 }
@@ -835,26 +893,16 @@ form.carga_dptos{
 	padding-left: 30px;
 	padding-right: 30px;
 }
-/*.tabsecundaria{
-	height: 32px;
-	border-bottom:2px solid #57ACCE;
-	padding: 5px;
-	
+#form_agrupacion .tabs{
+	margin-left:-20px;
 }
-.tabsecundaria li{
-	padding: 5px;
-}*/
-.tabs{
-	height: 32px;
-	margin-left: -30px;
-	margin-bottom: 20px;
-}
+
 #uf_secundarias .tabs, #uf_secundarias .tab_agrupacion{
 	border-bottom: 2px solid #57ACCE;
 }
 
 .tab_agrupacion{
-	height: 32px;
+	height: 12px;
 	border-bottom: 2px solid #57ACCE;
 	padding: 5px;
 	background-color: #f1f1f1;
@@ -869,7 +917,7 @@ form.carga_dptos{
 	color: #f7f7f7 !important;
 	padding: 10px !important;
 	margin-top: -10px;
-	height: 42px;
+	height: 20px;
 }
 #uf_primarias .tabs, #uf_primarias .tab_agrupacion{
 	border-bottom: 2px solid #E68C28;
@@ -880,19 +928,17 @@ form.carga_dptos{
 	color: #f7f7f7 !important;
 	padding: 10px !important;
 	margin-top: -10px;
-	height: 42px;
+	height: 20px;
 }
 
 /*----------Iconos y Logos---------------------*/
 .logo{
-	width: 50px;
-	height: 50px;
 	float: left;
 	margin-right: 20px;
 	margin-bottom: 20px;
 }
 .logo_close{
-	background:url('../images/close.png');
+	background:url('../images/sprite/img_14.png');
 	width:30px;
 	height:30px;
 	margin-right: 20px;
@@ -900,26 +946,37 @@ form.carga_dptos{
 	margin-top: 23px;
 }
 .logo_close_done{
-	background:url('../images/close_done.png');
+	background:url('../images/sprite/img_15.png');
 	width:30px;
 	height:30px;
 	margin-right: 20px;
 	float:left;
 	margin-top: 23px;
 }
-.icono_com{
+.icono_Comercial{
 	width: 50px;
-	height: 29px;
+	height: 23px;
 	margin-right: 10px;
 	margin-bottom: 10px;
 	float: left;
-	background: url('../images/Logo_local.png');
+	background: url('../images/sprite/img_24.png');
 	text-align: center;
-	padding-top: 5px;
+	padding-top: 6px;
+	color: #f7f7f7;
+}
+.icono_com{
+	width: 50px;
+	height: 23px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+	background: url('../images/sprite/img_24.png');
+	text-align: center;
+	padding-top: 6px;
 	color: #f7f7f7;
 }
 .icono_cc{
-	width: 20px;
+	width: 22px;
 	height: 20px;
 	float: left;
 	background-color: #57ACCE;
@@ -931,6 +988,7 @@ form.carga_dptos{
 	margin-bottom: 10px;
 	text-align: center;
 	z-index: 1000;
+	padding-top:2px;
 }
 .icono_cc_done{
 	width: 20px;
@@ -942,7 +1000,7 @@ form.carga_dptos{
 	border-radius: 100%;
 	border:1px solid #000000;
 	color:#000;
-	margin-left: -30px;
+	margin-left: -32px;
 	text-align: center;
 }
 .icono_dc{
@@ -972,33 +1030,35 @@ form.carga_dptos{
 	margin-left:-45px; 
 }
 .icono_bau{
-	width: 35px;
+	width: 44px;
 	height: 20px;
 	float: left;
-	background-color: #57ACCE;
 	color: #f7f7f7;
-	margin-right: 10px;
+	margin-right: 5px;
 	margin-bottom: 10px;
 	text-align: center;
 	z-index: 1000;
+	background: url('../images/sprite/img_25.png');
+	padding-top:10px;
 }
 .icono_bau_done{
-	width: 35px;
+	width: 43px;
 	height: 20px;
 	float: left;
-	background-color: #000000;
-	color: #f7f7f7;
 	margin-right: 10px;
-	margin-bottom: 10px;
 	text-align: center;
 	margin-left: -45px;
+	padding-top:10px;
+	background: url('../images/sprite/img_31.png');
 }
 .icono_info{
-	background: url('../images/info.png');
-	width: 25px;
-	height: 25px;
+	background: url('../images/sprite/img_26.png');
+	width: 30px;
+	height: 30px;
 	float: left;
 	margin-left: 10px;
+	margin-bottom:20px;
+	margin-top:-6px;
 }
 .otras_unidades{
 	margin-top: 20px;
@@ -1006,18 +1066,19 @@ form.carga_dptos{
 	width: 95%;
 }
 .cuerpo{
-	width: 90%;
+	width: 940px;
 	float: left;
 }
 
 .opciones{
 	width: 25px;
-	height: 25px;
+	height: 21px;
 	padding-left: 7px;
-	padding-top: 1px;
+	padding-top: 4px;
 	border: 1px solid;
 	float: left;
 	margin-right: 20px;
+	text-align:center;
 }
 .mitad{
 	width: 50%;
@@ -1029,35 +1090,33 @@ form.carga_dptos{
 	margin-bottom: 10px;
 }
 .principales{
-	width: 16%;
+	width: 165px;
 	float: left;
 	border-top: 2px solid #E68C28;
 	margin-right: 2px;
 	border-bottom: 1px solid #808080;
 }
 .tabla_torre_class{
-	width: 22%;
+	width: 53px;
 	float: left;
-	/*margin-top: 30px;*/
 }
 .tabla_uf_prim_class{
-	width: 78%;
+	width: 110px;
 	float: left;
-	/*margin-top: 30px;*/
 }
 .tabla_title{
 	text-align: center;
 	text-transform: uppercase;
 }
 .secundarias{
-	width: 28%;
+	width: 252px;
 	float: left;
 	border-top: 2px solid #808080;
 	margin-right: 2px;
 	border-bottom: 1px solid #808080;
 }
 .propietarios{
-	width: 28%;
+	width: 263px;
 	float: left;
 	border-top: 2px solid;
 	margin-right: 2px;
@@ -1065,16 +1124,16 @@ form.carga_dptos{
 }
 .fila_25{
 	float: left;
-	width: 25%;
+	width: 64px;
 }
 .inquilinos{
-	width: 27%;
+	width: 254px;
 	float: left;
 	border-top: 2px solid;
 	border-bottom: 1px solid #808080;
 }
 .fila_33{
-	width: 33.3%;
+	width: 83px;
 	float: left;
 }
 .encabezado_tabla{
@@ -1121,7 +1180,7 @@ form.carga_dptos{
 	background-color: #E6E6E6; 
 }
 .cuerpo_dialog{
-	width: 100%;
+	width: 88%;
 	float: left;
 	padding-bottom: 25px;
 	border-bottom: 1px solid #A0A0A0;
@@ -1134,20 +1193,19 @@ form.carga_dptos{
 	float: left;
 }
 .excel{
-	width: 60px;
+	width: 70px;
 	margin-right: 20px;
 	margin-top: -16px;
 	float:left;
 }
 .texto{
-	width: 300px;
+	width: 235px;
 	float: left;
 	margin-bottom: 30px;
 }
 .finalizar{
 	text-transform: uppercase;
 	color:#57ACCE;
-	font-style: italic;
 }
 .icono_finalizar{
 	width:80px;
@@ -1161,27 +1219,32 @@ form.carga_dptos{
 	text-align: center;
 	float: left;
 	margin-right: 10px;
+	height:19px;
 }
 .nombre_espacio{
 	color: #57ACCE;
 	margin-bottom: 10px;
+	width: 325px;
+	float: left;
+	word-wrap: break-word;
 }
 #habilitar_unidadesFuncionales{
-	height: 941px;
+	height: 1040px;
 }
 #habilitar_unidadesOtras{
-	height: 652px;
-	top: 790px;
+	height: 720px;
+	top: 822px;
 }
 #habilitar_otrosEspacios{
 	height: 284px;
-	top: 1160px;
+	top: 1222px;
 }
 .inhabilitado{
-	width: 66%;
+	width: 530px;
 	background-color: #f7f7f7;
 	position: absolute;
 	opacity: 0.5;
+	margin-top:0px;
 }
 .deno_torres{
 	width: 170px;
@@ -1199,7 +1262,7 @@ form.carga_dptos{
 .color-picker{width: 20px; float: left;}
 #color-picker-container { display:none; position: absolute; top: 0; width: 100%; left: 0; right: 0; height: 100%; text-align: center; background: rgba(0,0,0,0.5); z-index: 15; cursor: pointer; }
 #color-picker-container .content { background:#fff; width: 470px; margin: 40px auto; border: 2px solid #e68c28; cursor:initial; height: 250px;}
-#color-picker-container .content h4 { background:#f7f7f7; text-transform:uppercase; text-align:center; padding:14px; color:#323232; border-bottom:2px solid #e5e5e5; font-family:'HNMedium'; font-size:14px; margin-top: 0px;}
+#color-picker-container .content h4 { background:#f7f7f7; text-transform:uppercase; text-align:center; padding: 14px 0px 14px 0px;; color:#323232; border-bottom:2px solid #e5e5e5; font-family:'HNMedium'; font-size:14px; margin-top: 0px;}
 #color-picker-container .colores { padding: 27px 17px 6px 17px; }
 #color-picker-container .colores .colorbox { margin:0 13px 23px 13px; float:left; transition:0.2s; outline-color:#e5e5e5; } #color-picker-container .colorbox:hover { outline:4px solid #e5e5e5; }
 #color-picker-container .colorbox .square { float:left; height:30px; width:30px; cursor:pointer; } 
@@ -1291,16 +1354,21 @@ form.carga_dptos{
   border-right: none;
 }
 .vista_vertodas{
-	background-color: #f7f7f7;
+    background-color: #f7f7f7;
 	height: 1330px;
-	width: 1%;
+	width: 0;
+	overflow:hidden;
 	padding-top: 50px;
-}
-.vertodas_activa{
-	width: 97%;
-	padding-left: 30px;
 	position: absolute;
+	z-index: 2;
+	box-sizing:border-box; 
+	-moz-box-sizing:border-box; 
+	right:0; 
+	box-shadow: 0px 6px 10px 3px #d5d5d5; 
+	transition:0.4s; 
 }
+.vista_vertodas.visible { width:970px; }
+
 .torre_name{
 	float: left;
 	height: 30px;
@@ -1316,9 +1384,10 @@ form.carga_dptos{
 }
 .hide_vertodas{
 	float:left;
+	margin-left:10px;
 }
 .bloque_torre{
-	width: 91%;
+	width: 440px;
 	float: left;
 	min-height: 610px;
 }
@@ -1326,12 +1395,18 @@ form.carga_dptos{
 	width: 48%;
 	float: left;
 }
+.inner_all_right .funcionales{
+	margin-left:15px;
+}
+.inner_all_right .linea_horizontal{
+	margin-left:12px;
+}
 .inner_all_left{
-	width: 48%;
+	width: 445px;
 	float: left;
 }
 .dibujo_torre{
-	width: 50%;
+	width: 300px;
 	height: 350px;
 	border: 2px solid #E68C28;
 	background-color: #ffffff;
@@ -1341,7 +1416,7 @@ form.carga_dptos{
 	float: left;
 }
 #edif_dibujo_todas{
-	width: 50%;
+	width: 300px;
 	float: left;
 	margin-left: -100px;
 	margin-top: 70px;
@@ -1394,6 +1469,68 @@ form.carga_dptos{
 height: 29px;
 float: left;
 }
+.flecha{
+	top: 130px;
+	left: 851px;
+	position: absolute;
+	z-index: 100;
+	display:none;
+}
+.ver_terminos{
+	text-decoration:underline;
+	cursor:pointer;
+}
+.dialogs, .dialog_modal {
+	display: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	left: 0;
+	right: 0;
+	height: 1560px;
+	background: rgba(0,0,0,0.5);
+	z-index: 15;
+}
+.dialog_modal .content{
+	background: #fff;
+	width: 700px;
+	margin: 40px auto;
+	border: 2px solid #e68c28;
+	cursor: initial;
+	height: 515px;
+	padding-left:20px;
+}
+.dialog_modal .content h4{
+	background: #f7f7f7;
+	text-transform: uppercase;
+	padding: 14px 0px 14px 20px;
+	color: #57ACCE;
+	border-bottom: 2px solid #e5e5e5;
+	font-family: 'HNLight';
+	font-size: 14px;
+	margin-top: 0px;
+	margin-left:-20px;
+}
+.dialog_modal .content .body{
+	padding-right:20px;
+	word-break: break-word;
+}
+.dialog_modal .terminos{
+	border-top: 2px solid #e5e5e5;
+	width: 689px;
+	margin-left: -19px;
+	padding-top:20px;
+}
+.dialog_modal .terminos img{
+	float: left;
+	margin-left: 370px;
+	margin-top: -26px;
+}
+.datos_estructural{
+	width:550px;
+	height:90px;
+}
+
 /* help_hover */
 .help_hover { position:absolute; font-size:11px; color:#fff; border:1px solid #fff; background:#323232; font-family: 'LucidaGrandeRegular'; text-align:center; padding:8px 10px; white-space: nowrap; box-shadow: 0px 0px 8px 3px #d5d5d5; display:none; top:-38px; z-index:99; margin-left: -25px; text-transform: none;}
 .help_hover img { position: absolute; left: 0; right: 0; margin-left: auto; margin-right: auto; bottom: -9px; }
@@ -1404,21 +1541,57 @@ float: left;
 .confirmar .help_hover.aside{top:-37px; left:60px;}
 #confirmar_paso4 .help_hover {top: -128px; left: 110px;}
 .color-picker:hover .help_hover { display:block; }
-.color-picker .help_hover.aside{top: 136px;left: 445px;}
+.color-picker .help_hover.aside{top: 185px;left: 448px;}
 #uf_cant .help:hover .help_hover{display: block;}
 
 #uf_cant .help .help_hover{left: -70px;top: -47px;}
 .help_dpto .help_hover{top:-50px;}
 .help_dpto:hover .help_hover{display: block;}
-.deno_torres .help_hover{top: 84px; left: 263px;}
+.deno_torres .help_hover{top: 90px; left: 248px;}
 .deno_torres:hover .help_hover{display: block;}
 .confirmar_person .help_hover{top: 532px;left: 45px;}
 .confirmar_person:hover .help_hover{display: block;}
 
 .help:hover .help_hover{display: block;}
-.help .help_hover{top: 240px;left: 320px;}
+.help .help_hover{top: 280px;left: 340px;}
 .help .help_hover.aside img{bottom: 21px;}
-.hide_vertodas .help_hover{top: 3px;left: 48px;}
+.hide_vertodas .help_hover{top: 3px;left: 23px;}
 .hide_vertodas:hover .help_hover{display: block;}
 
 #flotante{position:absolute; font-size:11px; color:#fff; border:1px solid #fff; background:#323232; font-family: 'LucidaGrandeRegular'; text-align:center; padding:8px 10px; white-space: nowrap; box-shadow: 0px 0px 8px 3px #d5d5d5; display:none; top:-38px; z-index:99; margin-left: -25px; text-transform: none;}
+.dibujo_edif{
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	max-width: 62.5em;
+}
+.dibujo_edif .column, .dibujo_edif .columns{
+	border: 1px solid #E68C28;
+	font-size: 13px;
+	font-weight: bold;
+	text-indent: 3px;
+	padding-top: 8px;
+	color: #444;
+	padding-bottom: 8px;
+}
+.column, .columns{
+	position: relative;
+	padding-left: 0.9375em;
+	padding-right: 0.9375em;
+	float: left;
+}
+.vista_comercios p{
+	font-weight:bold;
+}
+#form_agrupacion .tabs{
+	height: 32px;
+	margin-bottom: 20px;
+}
+.flecha_agrup{
+	float: left;
+	position: absolute;
+	top: 440px;
+	left: 450px;
+}

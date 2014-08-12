@@ -7,8 +7,8 @@
       <div id="uf" class="row demo display_none">
         <div id="uf_cant" class="largo-total gutter-large columns"></div>
       </div>
-      <div id="edif_dibujo" class="row demo dibujo_edif display_none">
-        <div id="edificio" class='largo-total gutter-large columns'></div>
+      <div id="edif_dibujo" class="dibujo_edif display_none">
+        <div id="edificio" class='largo-total columns'></div>
       </div>
       <div id="numeracion" class="num_class display_none">
         <div id="pisos_num"></div>
@@ -19,60 +19,60 @@
     <div id="comercios" class="display_none">
       <hr>
       <div class="logo" >
-      <img src="images/Logo_comerciales.png">
+      <img src="images/sprite/img_18.png">
       </div>
       <div class="vista_comercios">
-        <h6>Locales Comerciales</h6>
+        <p>Locales Comerciales</p>
         <div id="list_com" ></div>
       </div>
       <hr>
     </div>
     <div id="cochera_cub" class="display_none">
       <div class="logo" >
-        <img src="images/Logo_techadas.png">
+        <img src="images/sprite/img_19.png">
       </div>
       <div  class="vista_comercios">
-        <h6>Cocheras Cubiertas</h6>
+        <p>Cocheras Cubiertas</p>
         <div id="list_cc"></div>
       </div>
       <hr>
     </div>
     <div id="coch_desc" class="display_none">
       <div class="logo">
-      <img src="images/Logo_Destechadas.png">
+      <img src="images/sprite/img_20_1.png">
       </div>
       <div  class="vista_comercios">
-        <h6>Cocheras Descubiertas</h6>
+        <p>Cocheras Descubiertas</p>
         <div id="list_dc"></div>
       </div>
       <hr>
     </div>
     <div id="baulera" class="display_none">
       <div class="logo" >
-      <img src="images/Logo_baulera.png">
+      <img src="images/sprite/img_23.png">
       </div>
       <div  class="vista_comercios">
-        <h6>Bauleras</h6>
+        <p>Bauleras</p>
         <div id="list_b"></div>
       </div>
       <hr>
     </div>
     <div id="espacio_comun_dib" class="display_none">
       <div class="logo" >
-        <img src="images/espacios_comunes.png">
+        <img src="images/sprite/img_21.png">
       </div>
       <div  class="vista_comercios">
-        <h6>Espacios comunes</h6>
+        <p>Espacios comunes</p>
         <div id="list_espacio_comun"></div>
       </div>
       <hr>
     </div>
     <div id="otros_espacios_dib" class="display_none">
       <div class="logo" >
-        <img src="images/otros_elementos.png">
+        <img src="images/sprite/img_22_1.png">
       </div>
       <div  class="vista_comercios">
-        <h6>Otras Unidades</h6>
+        <p>Otras Unidades</p>
         <div id="list_otros_espacios"></div>
       </div>
       <hr>

@@ -1,72 +1,77 @@
-<div id="formulario_persona" class="display_none">
+<div id="formulario_persona">
    <div class="notes">
-     <div class="coment1">
+     <div class="coments coment1">
        <div><span class="orange">*</span>
-         Datos oligatorios a ser expuestos en reportes del consorcio
+         Datos obligatorios a ser expuestos en reportes del consorcio
         </div>
      </div>
-     <div class="coment2">
-       <div> Tus datos no seran compartidos bajo ningun concepto.</div>
+     <div class="coments coment2">
+       <div> Tus datos no serán compartidos bajo ningún concepto.</div>
      </div>
    </div>
    <div id="form_1" class="formulario_altas">
+    <div class="datos">
      <div class="dato_input">
-       <span class="orange">*</span> Nombre
+       <p><span class="orange">*</span> Nombre</p>
        <input type="text" name="nombre">
      </div>
      <div class="dato_input">
-       <span class="orange">*</span> Apellido
+       <p><span class="orange">*</span> Apellido</p>
        <input type="text" name="apellido">
      </div>
      <div class="dato_input">
        <input type="checkbox" name="razon_social" id="razon_social">
        <div class="dato_razonSoc">
-         Razon social
+         <p>Razón social</p>
       	 <input type="text" name="raz_social" disabled>
        </div>
      </div>
      <div class="dato_input agregar_foto">
-       <div id="add_foto"  class="display_none">
-         <img src="images/icon_agregar.png">
-         <span class="orange">Agreg&aacute; la foto de tu perfil</span>
+       <div id="add_foto" class="table_row">
+         <img src="images/icon_agregar.png" class="pointer">
+         <span class="orange vertical_aling">Agreg&aacute; la foto de tu perfil</span>
        </div>
-       <div id="edit_foto">
+       <div id="edit_foto" class="table_row display_none">
          <img class="foto_usuario" src="images/foto.jpg">
-         <span class="orange">Editar foto</span>
+         <span class="orange vertical_aling pointer">Editar foto</span>
        </div> 
      </div>
+     </div>
+     <div class="datos_large">
      <div class="dato_mail">
-       <span class="orange">*</span> e-mail (sera tu nombre de usuario)
-       <input type="text" name="email">
+       <p><span class="orange">*</span> e-mail (será tu nombre de usuario) </p>
+       <input type="text" name="email" class="input_large">
      </div>
      <div class="dato_mail">
-       <span class="orange">*</span> Contraseña (minimo 6 caracteres)
-       <input type="password" name="contrasena">
-       <span class="grey left">La contraseña debe contener letras y numeros</span>
+       <p><span class="orange">*</span> Contraseña (mínimo 6 caracteres) </p>
+       <input type="password" name="contrasena" class="input_large">
+       <span class="grey left">La contraseña debe contener letras y números</span>
      </div>
      <div class="dato_mail button_20">
-       <span class="orange">*</span> Repetir contraseña
-       <input type="password" name="rep_contra">
+       <p><span class="orange">*</span> Repetir contraseña </p>
+       <input type="password" name="rep_contra" class="input_large">
      </div>
+     </div>
+     <div class="datos_large">
+     <div class="orange" style="margin-top: 40px;">Domicilio</div>
      <div class="dato_input">
-       <div class="orange">Domicilio</div>
-         Calle
+         <p>Calle</p>
          <input type="text" name="calle">
        </div>
-       <div class="dato_input small_input top_40">
-         Nro.
-         <input type="text" name="nro_calle">
+       <div class="dato_input small_input">
+         <p>Nro.</p>
+         <input type="text" name="nro_calle" class="input_small">
        </div>
-       <div class="dato_input small_input top_40">
-         Piso
-         <input type="text" name="piso">
+       <div class="dato_input small_input">
+         <p>Piso</p>
+         <input type="text" name="piso" class="input_small">
        </div>
-       <div class="dato_input small_input top_40">
-         Dpto.
-         <input type="text" name="departamento">
+       <div class="dato_input small_input">
+         <p>Dpto.</p>
+         <input type="text" name="departamento" class="input_small">
        </div>
-       <div class="dato_input top_40">
-         <span class="orange">*</span> Provincia
+       <div class="dato_input">
+        <p> <span class="orange">*</span> Provincia </p>
          <select id="provincia">
            <option value=""></option>
            <option value="Buenos Aires">Buenos Aires</option>
@@ -75,8 +80,8 @@
            <option value="Rio Negro">Rio Negro</option>
          </select>
        </div>
-       <div class="dato_input top_40">
-         <span class="orange">*</span> Localidad
+       <div class="dato_input">
+        <p> <span class="orange">*</span> Localidad </p>
          <select id="localidad">
            <option value=""></option>
            <option value="Buenos Aires">Buenos Aires</option>
@@ -85,21 +90,26 @@
            <option value="Viedma">Viedma</option>
          </select>
        </div>
+       </div>
+       <div class="datos">
        <div class="dato_input">
-         Telefono fijo
+        <p> Teléfono fijo </p>
          <input type="text" name="fijo">
        </div>
        <div class="dato_input">
-         <span class="orange">*</span> Telefono de emergencias
+        <p> <span class="orange">*</span> Teléfono de emergencias </p>
          <input type="text" name="emergencia">
        </div>
-       <div class="dato_input">
-         <span class="orange">*</span> Cuit
-         <input type="text" name="Cuit">
-       </div>
        <div class="dato_input large_input">
-         Matricula RPA
-         <input type="text" name="mat_rpa">
+        <p> <span class="orange">*</span> CUIT </p>
+         <input type="text" name="Cuit" class="input_large">
+       </div>
+       </div>
+       <div class="datos">
+       <div class="dato_input large_input">
+        <p> Matricula RPA </p>
+         <input type="text" name="mat_rpa" class="input_extralarge">
+       </div>
        </div>
    </div><!-- form_1-->
    <div class="error display_none">
