@@ -249,16 +249,18 @@ $(document).ready(function(){
     $('#cant_torres').on('change',function(){
         var Abc="ABCD";
         var cant_torres=$(this).val();
+        if (cant_torres!=0){
         $('.inner_perso').empty();
         $('.inner_deno').empty();
-        
         if (cant_torres>1){
           $('#torres_iguales').prop('disabled',false);
           $('#no_torres_iguales').prop('disabled',false);
         }
         if (cant_torres==1){
             $('.torre_1 #habilitar_unidadesFuncionales').addClass('display_none');
+            $('.torre_1 #habilitar_unidadesOtras').removeClass('display_none');
         }
+
         $('#torres_list').empty();
         $('#dibujos_list').empty();
         $('#person_torres').empty();
@@ -370,6 +372,7 @@ $(document).ready(function(){
             if (cant_torres>3){
                 $('#todas_2 .linea_horizontal').removeClass('display_none');
             }
+        }
         }
     });
 
@@ -615,46 +618,93 @@ $(document).ready(function(){
 
         /*Agrega los locales a la tabla final*/
         if (tiene_unidades=='Si') {
-            for (i=1; i<=cant_uni; i++){
+         if ($('#torres_iguales').is(':checked') &&  (torre=='torre_1')){
+            for (t=1;t<=cant_torres;t++){
+              for (i=1; i<=cant_uni; i++){
                 if (nro_fila%2==0){
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_torre_class text_tabla celdas">'+nro+'</div>');
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_uf_prim_class text_tabla celdas">Local Comer. '+Abc.charAt(i-1)+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="tabla_torre_class text_tabla celdas">'+t+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="tabla_uf_prim_class text_tabla celdas">PB '+Abc.charAt(i-1)+'</div>');
 
-                    $( "#cuerpo_tabla_sec" ).append('<div id="cc_local_'+i+'" class="fila_33 celdas par_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="dc_local_'+i+'" class="fila_33 celdas par_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="b_local_'+i+'" class="fila_33 celdas par_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .pb_torre_"+t).append('<div id="cc_pb_'+t+'_'+i+'" class="fila_33 celdas par_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .pb_torre_"+t).append('<div id="dc_pb_'+t+'_'+i+'" class="fila_33 celdas par_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .pb_torre_"+t).append('<div id="b_pb_'+t+'_'+i+'" class="fila_33 celdas par_sec"></div>');
 
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
 
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
 
                      nro_fila++;
                 }
                 else {
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+nro+'</div>');
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Local Comer. '+Abc.charAt(i-1)+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+t+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">PB '+Abc.charAt(i-1)+'</div>');
 
-                    $( "#cuerpo_tabla_sec" ).append('<div id="cc_local_'+i+'" class="fila_33 celdas impar_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="dc_local_'+i+'" class="fila_33 celdas impar_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="b_local_'+i+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .pb_torre_"+t).append('<div id="cc_pb_'+t+'_'+i+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .pb_torre_"+t).append('<div id="dc_pb_'+t+'_'+i+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .pb_torre_"+t).append('<div id="b_pb_'+t+'_'+i+'" class="fila_33 celdas impar_sec"></div>');
 
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
 
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .pb_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
 
                      nro_fila++;
                 }
             }
+
+            }
+         }
+         else{
+            for (i=1; i<=cant_uni; i++){
+                if (nro_fila%2==0){
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="tabla_torre_class text_tabla celdas">'+nro+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="tabla_uf_prim_class text_tabla celdas">PB '+Abc.charAt(i-1)+'</div>');
+
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div id="cc_pb_'+i+'" class="fila_33 celdas par_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div id="dc_pb_'+i+'" class="fila_33 celdas par_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div id="b_pb_'+i+'" class="fila_33 celdas par_sec"></div>');
+
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
+
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+
+                     nro_fila++;
+                }
+                else {
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+nro+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">PB '+Abc.charAt(i-1)+'</div>');
+
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div id="cc_pb_'+i+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div id="dc_pb_'+i+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div id="b_pb_'+i+'" class="fila_33 celdas impar_sec"></div>');
+
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
+
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .pb_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+
+                     nro_fila++;
+                }
+            }
+          }
         }
     });
 
@@ -684,27 +734,28 @@ $(document).ready(function(){
 
                 for (k=1;k<=cant_deptos;k++){
                     $('.dibujoT_'+t+' #piso_nro_'+i).append('<div id="dpto_nro_'+i+'_'+k+'" class="dpto-'+cant_deptos+' column dpto"></div>');
-                    nuevo_elem = $('<div id="uf_prim_dpto_nro_'+i+'_'+k+'" class="dpto-'+cant_deptos+' column dpto droppable" data-name="'+i+'_'+k+'"></div>')
+                    nuevo_elem = $('<div id="uf_prim_dpto_nro_'+i+'_'+k+'" class="dpto-'+cant_deptos+' column dpto droppable" data-name="'+t+'_'+i+'_'+k+'"></div>')
                     nuevo_elem.droppable({ 
                        drop: function( event, ui ) { 
                             value=ui.draggable.html();
                             tipo=ui.draggable.data().name;
-                            pertenece = nro+'_'+this.dataset.name;
+                            pertenece =this.dataset.name; 
+                            torre = pertenece.split('_')[0];
 
                             if (tipo=="cochera_cubierta"){
-                                $('#uf_secundarias .torre_'+t+' #hidden_'+value).prop('hidden',false);
-                                $('#uf_secundarias .torre_'+t+' #hidden_'+value).attr( "title", '"'+pertenece+'"' );
+                                $('#uf_secundarias .torre_'+torre+' #hidden_'+value).prop('hidden',false);
+                                $('#uf_secundarias .torre_'+torre+' #hidden_'+value).attr( "title", '"'+pertenece+'"' );
                                 $('#cc_dpto_'+pertenece).append('<div class="icono_cc tabla_cc_'+pertenece+'_'+value+'">'+value+'</div>')
                             }
                             else {
                                 if (tipo == "cochera_descubierta") {
-                                     $('#uf_secundarias .torre_'+t+' #hidden_dc_'+value).prop('hidden',false);
-                                     $('#uf_secundarias .torre_'+t+' #hidden_dc_'+value).attr( "title", '"'+pertenece+'"' );
+                                     $('#uf_secundarias .torre_'+torre+' #hidden_dc_'+value).prop('hidden',false);
+                                     $('#uf_secundarias .torre_'+torre+' #hidden_dc_'+value).attr( "title", '"'+pertenece+'"' );
                                      $('#cd_dpto_'+pertenece).append('<div class="icono_dc tabla_dc_'+pertenece+'_'+value+'">'+value+'</div>')
                                 }
                                 else {
-                                     $('#uf_secundarias .torre_'+t+' #hidden_b_'+value).prop('hidden',false);
-                                     $('#uf_secundarias .torre_'+t+' #hidden_b_'+value).attr( "title", '"'+pertenece+'"' );
+                                     $('#uf_secundarias .torre_'+torre+' #hidden_b_'+value).prop('hidden',false);
+                                     $('#uf_secundarias .torre_'+torre+' #hidden_b_'+value).attr( "title", '"'+pertenece+'"' );
                                      $('#b_dpto_'+pertenece).append('<div class="icono_bau tabla_bau_'+pertenece+'_'+value+'">'+value+'</div>')
                                 }
                             }
@@ -734,8 +785,48 @@ $(document).ready(function(){
 
                     $('#uf_primarias .torre_'+t+' #uf_prim_piso_nro_'+i).append(nuevo_elem);
                     $('#todas_'+t+' #todas_piso_nro_'+i).append('<div class="dpto-'+cant_deptos+' ver_todas_dpto_'+k+' column dpto"></div>');
+                    
+                    if (nro_fila%2==0){
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_torre_class text_tabla celdas">'+t+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_uf_prim_class text_tabla celdas">Dpto. '+i+'_'+k+'</div>');
+
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cc_dpto_'+t+'_'+i+'_'+k+'" class="fila_33 celdas par_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cd_dpto_'+t+'_'+i+'_'+k+'" class="fila_33 celdas par_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="b_dpto_'+t+'_'+i+'_'+k+'" class="fila_33 celdas par_sec"></div>');
+
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
+
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+
+                    nro_fila++;
+                }
+                else {
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+t+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Dpto. '+i+'_'+k+'</div>');
+
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cc_dpto_'+t+'_'+i+'_'+k+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cd_dpto_'+t+'_'+i+'_'+k+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="b_dpto_'+t+'_'+i+'_'+k+'" class="fila_33 celdas impar_sec"></div>');
+
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
+
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                     nro_fila++;
+                }
                 }
              }
+
+             
             }
         }
 
@@ -798,48 +889,49 @@ $(document).ready(function(){
 
                 $('#uf_primarias .torre_'+nro+' #uf_prim_piso_nro_'+i).append(nuevo_elem);
                 $('#todas_'+nro+' #todas_piso_nro_'+i).append('<div class="dpto-'+cant_deptos+' ver_todas_dpto_'+k+' column dpto"></div>');
-           
-                /*Carga los datos del departamento en la tabla final*/
                 if (nro_fila%2==0){
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_torre_class text_tabla celdas">'+nro+'</div>');
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_uf_prim_class text_tabla celdas">Dpto. '+i+'_'+k+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="tabla_torre_class text_tabla celdas">'+nro+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="tabla_uf_prim_class text_tabla celdas">Dpto. '+i+'_'+k+'</div>');
 
-                    $( "#cuerpo_tabla_sec" ).append('<div id="cc_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas par_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="cd_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas par_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="b_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas par_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="cc_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas par_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="cd_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas par_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="b_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas par_sec"></div>');
 
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
 
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
 
                     nro_fila++;
                 }
                 else {
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+nro+'</div>');
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Dpto. '+i+'_'+k+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+nro+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Dpto. '+i+'_'+k+'</div>');
 
-                    $( "#cuerpo_tabla_sec" ).append('<div id="cc_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas impar_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="cd_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas impar_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="b_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="cc_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="cd_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="b_dpto_'+nro+'_'+i+'_'+k+'" class="fila_33 celdas impar_sec"></div>');
 
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
 
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
                      nro_fila++;
                 }
-            } 
-        }
-        }
+           } 
+       } 
+   } 
+
+              
+     
    });
 
     $('input[type=checkbox]').on('click', function(){
@@ -953,14 +1045,18 @@ $(document).ready(function(){
             }
         }
 
+        var p=$(this).attr("name").split('_')[1];
+
         var cp=$('.torre_'+nro+' #cant_pisos').val();
+
         var Abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-        for (p=cp;p>0;p--){
-            dptos = $('.dibujoP_'+nro+' [name=piso_'+p+']').val();
+        //for (p=cp;p>0;p--){
+            dptos = $(this).val(); //'.dibujoP_'+nro+' [name=piso_'+p+']'
 
             if ($('#torres_iguales').is(':checked') && (nro==1)){
               for(t=1;t<=cant_torres;t++){
+
                 $('.dibujoP_'+t+' #'+nombre).addClass('piso_listo');
                 $('.dibujoP_'+t+' [name=piso_'+p+']').val(dptos);
                 $('.dibujoP_'+t+' #piso_nro_'+p).empty();
@@ -994,6 +1090,8 @@ $(document).ready(function(){
                 }
               }
             }
+
+
             
             for (d=1;d<=dptos;d++){
               if (tipo!=3){
@@ -1022,65 +1120,110 @@ $(document).ready(function(){
                 $('.dibujoP_'+nro+' #piso_nro_'+p).append('<div class="help_dpto"> <div id="dpto_nro_'+p+'_'+d+'" class="dpto-'+dptos+' column dpto" contenteditable="true"></div><div class="help_hover"><div>Ingresá la denominación para esta UF</div><img src="images/icon-arrow-down.png"></div></div>');
                 $('#todas_'+nro+' #todas_piso_nro_'+p).append('<div class="dpto-'+dptos+' ver_todas_dpto_'+k+' column dpto"></div>');
               }
+            }
 
-              /*Si las torres son iguales...*/
-              if ($('#torres_iguales').is(':checked') && (nro==1)){
-                for(t=1;t<=cant_torres;t++){
-                  nuevo_elem = $('<div id="uf_prim_dpto_nro_'+p+'_'+d+'" class="dpto-'+dptos+' column dpto droppable" data-name="'+p+'_'+d+'"></div>')
-                  nuevo_elem.droppable({ 
-                       drop: function( event, ui ) { 
+            /*Si las torres son iguales...*/
+            if ($('#torres_iguales').is(':checked') && (nro==1)){
+             for(t=1;t<=cant_torres;t++){
+               for (d=1;d<dptos;d++){
+                   nuevo_elem = $('<div id="uf_prim_dpto_nro_'+p+'_'+d+'" class="dpto-'+dptos+' column dpto droppable" data-name="'+t+'_'+p+'_'+d+'"></div>')
+                   nuevo_elem.droppable({ 
+                           drop: function( event, ui ) { 
+                                value=ui.draggable.html();
+                                tipo=ui.draggable.data().name;
+                                pertenece = this.dataset.name;
+                                torre=pertenece.split('_')[0];
+
+                                if (tipo=="cochera_cubierta"){
+                                    $('#uf_secundarias .torre_'+torre+' #hidden_'+value).prop('hidden',false);
+                                    $('#uf_secundarias .torre_'+torre+' #hidden_'+value).attr( "title", '"'+pertenece+'"' );
+                                    $('#cc_dpto_'+pertenece).append('<div class="icono_cc tabla_cc_'+pertenece+'_'+value+'">'+value+'</div>')
+                                }
+                                else {
+                                    if (tipo == "cochera_descubierta") {
+                                         $('#uf_secundarias .torre_'+torre+' #hidden_dc_'+value).prop('hidden',false);
+                                         $('#uf_secundarias .torre_'+torre+' #hidden_dc_'+value).attr( "title", '"'+pertenece+'"' );
+                                         $('#cd_dpto_'+pertenece).append('<div class="icono_dc tabla_dc_'+pertenece+'_'+value+'">'+value+'</div>')
+                                   }
+                                    else {
+                                         $('#uf_secundarias .torre_'+torre+' #hidden_b_'+value).prop('hidden',false);
+                                         $('#uf_secundarias .torre_'+torre+' #hidden_b_'+value).attr( "title", '"'+pertenece+'"' );
+                                         $('#b_dpto_'+pertenece).append('<div class="icono_bau tabla_bau_'+pertenece+'_'+value+'">'+value+'</div>')
+                                    }
+                                }
+                           }, 
+                           out: function( event, ui ) { 
                             value=ui.draggable.html();
-                            tipo=ui.draggable.data().name;
-                            pertenece = nro+'_'+this.dataset.name;
-                            if (tipo=="cochera_cubierta"){
-                                $('#uf_secundarias .torre_'+t+' #hidden_'+value).prop('hidden',false);
-                                $('#uf_secundarias .torre_'+t+' #hidden_'+value).attr( "title", '"'+pertenece+'"' );
-                                $('#cc_dpto_'+pertenece).append('<div class="icono_cc tabla_cc_'+pertenece+'_'+value+'">'+value+'</div>')
-                            }
-                            else {
-                                if (tipo == "cochera_descubierta") {
-                                     $('#uf_secundarias .torre_'+t+' #hidden_dc_'+value).prop('hidden',false);
-                                     $('#uf_secundarias .torre_'+t+' #hidden_dc_'+value).attr( "title", '"'+pertenece+'"' );
-                                     $('#cd_dpto_'+pertenece).append('<div class="icono_dc tabla_dc_'+pertenece+'_'+value+'">'+value+'</div>')
-                               }
-                                else {
-                                     $('#uf_secundarias .torre_'+t+' #hidden_b_'+value).prop('hidden',false);
-                                     $('#uf_secundarias .torre_'+t+' #hidden_b_'+value).attr( "title", '"'+pertenece+'"' );
-                                     $('#b_dpto_'+pertenece).append('<div class="icono_bau tabla_bau_'+pertenece+'_'+value+'">'+value+'</div>')
-                                }
-                            }
-                       }, 
-                       out: function( event, ui ) { 
-                        value=ui.draggable.html();
-                            tipo=ui.draggable.data().name;
-                            pertenece = nro+'_'+this.dataset.name;
+                                tipo=ui.draggable.data().name;
+                                pertenece = this.dataset.name;
 
-                            if (tipo=="cochera_cubierta"){
-                                $('#uf_secundarias .torre_'+t+' #hidden_'+value).prop('hidden',true);
-                                $('#cc_dpto_'+pertenece+' .tabla_cc_'+pertenece+'_'+value).remove();
-                            }
-                            else {
-                               if (tipo == "cochera_descubierta") {
-                                     $('#uf_secundarias .torre_'+t+' #hidden_dc_'+value).prop('hidden',true);
-                                     $('#cd_dpto_'+pertenece+' .tabla_dc_'+pertenece+'_'+value).remove();
+                                if (tipo=="cochera_cubierta"){
+                                    $('#uf_secundarias .torre_'+t+' #hidden_'+value).prop('hidden',true);
+                                    $('#cc_dpto_'+pertenece+' .tabla_cc_'+pertenece+'_'+value).remove();
                                 }
                                 else {
-                                     $('#uf_secundarias .torre_'+t+' #hidden_b_'+value).prop('hidden',true);
-                                     $('#b_dpto_'+pertenece+' .tabla_bau_'+pertenece+'_'+value).remove();
+                                   if (tipo == "cochera_descubierta") {
+                                         $('#uf_secundarias .torre_'+t+' #hidden_dc_'+value).prop('hidden',true);
+                                         $('#cd_dpto_'+pertenece+' .tabla_dc_'+pertenece+'_'+value).remove();
+                                    }
+                                    else {
+                                         $('#uf_secundarias .torre_'+t+' #hidden_b_'+value).prop('hidden',true);
+                                         $('#b_dpto_'+pertenece+' .tabla_bau_'+pertenece+'_'+value).remove();
+                                    }
                                 }
-                            }
-                       } 
-                    });
-                    $('#uf_primarias .torre_'+t+' #uf_prim_piso_nro_'+p).append(nuevo_elem);
+                           } 
+                   });
+                   $('#uf_primarias .torre_'+t+' #uf_prim_piso_nro_'+p).append(nuevo_elem);
+
+                    /*Carga los datos del departamento en la tabla final*/
+                     if (nro_fila%2==0){
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_torre_class text_tabla celdas">'+t+'</div>');
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_uf_prim_class text_tabla celdas">Dpto. '+p+'_'+d+'</div>');
+
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cc_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cd_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="b_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
+
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+
+                        nro_fila++;
+                    }
+                    else {
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+t+'</div>');
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Dpto. '+p+'_'+d+'</div>');
+
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cc_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cd_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="b_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
+
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                         nro_fila++;
+                    }
+                  }
                 }
               }
               else{
-                nuevo_elem = $('<div id="uf_prim_dpto_nro_'+p+'_'+d+'" class="dpto-'+dptos+' column dpto droppable" data-name="'+p+'_'+d+'"></div>')
+                for (d=1;d<dptos;d++){
+                nuevo_elem = $('<div id="uf_prim_dpto_nro_'+p+'_'+d+'" class="dpto-'+dptos+' column dpto droppable" data-name="'+nro+'_'+p+'_'+d+'"></div>')
                 nuevo_elem.droppable({ 
                      drop: function( event, ui ) { 
                           value=ui.draggable.html();
                           tipo=ui.draggable.data().name;
-                          pertenece = nro+'_'+this.dataset.name;
+                          pertenece = this.dataset.name;
                           if (tipo=="cochera_cubierta"){
                               $('#uf_secundarias .torre_'+nro+' #hidden_'+value).prop('hidden',false);
                               $('#uf_secundarias .torre_'+nro+' #hidden_'+value).attr( "title", '"'+pertenece+'"' );
@@ -1102,7 +1245,7 @@ $(document).ready(function(){
                      out: function( event, ui ) { 
                       value=ui.draggable.html();
                           tipo=ui.draggable.data().name;
-                          pertenece = nro+'_'+this.dataset.name;
+                          pertenece = this.dataset.name;
                           if (tipo=="cochera_cubierta"){
                               $('#uf_secundarias .torre_'+nro+' #hidden_'+value).prop('hidden',true);
                               $('#cc_dpto_'+pertenece+' .tabla_cc_'+pertenece+'_'+value).remove();
@@ -1120,48 +1263,48 @@ $(document).ready(function(){
                      } 
                   });
               $('#uf_primarias .torre_'+nro+' #uf_prim_piso_nro_'+p).append(nuevo_elem);
-            }
-            
+                        
             /*Carga los datos del departamento en la tabla final*/
               if (nro_fila%2==0){
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_torre_class text_tabla celdas">'+nro+'</div>');
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_uf_prim_class text_tabla celdas">Dpto. '+p+'_'+d+'</div>');
+                    $("#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="tabla_torre_class text_tabla celdas">'+nro+'</div>');
+                    $("#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="tabla_uf_prim_class text_tabla celdas">Dpto. '+p+'_'+d+'</div>');
 
-                    $( "#cuerpo_tabla_sec" ).append('<div id="cc_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="cd_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="b_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                    $("#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="cc_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                    $("#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="cd_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                    $("#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="b_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
 
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
+                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
 
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
 
                     nro_fila++;
                 }
                 else {
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+nro+'</div>');
-                    $( "#cuerpo_tabla_edif" ).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Dpto. '+p+'_'+d+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+nro+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Dpto. '+p+'_'+d+'</div>');
 
-                    $( "#cuerpo_tabla_sec" ).append('<div id="cc_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="cd_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
-                    $( "#cuerpo_tabla_sec" ).append('<div id="b_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div id="cc_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div id="cd_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div id="b_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
 
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop" ).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
 
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq" ).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
                      nro_fila++;
                 }
+             }
             }
-        }
+       // }
     });
     
    
@@ -1700,59 +1843,100 @@ $(document).ready(function(){
            $('.torre_'+t+'  #locales_comerciales option[value='+ cant +']').attr("selected",true);
            $('.dibujoT_'+t+' #comercios').removeClass('display_none');
            $('.dibujoT_'+t+' #list_com').empty();
-           /*$('#uf_primarias .torre_'+t+' #agrup_locales_comerciales').removeClass('display_none');
-           $('#uf_primarias .torre_'+t+'  #list_comercios').empty();*/
+           $('#uf_primarias .torre_'+t+' #agrup_locales_comerciales').removeClass('display_none');
+           $('#uf_primarias .torre_'+t+'  #list_comercios').empty();
            for (i=1;i<=cant;i++){
             $('.dibujoT_'+t+' #list_com').append('<div class="icono_com">'+i+'</div>');
-           // var nuevo_elem=$('<div class="icono_Comercial" >'+i+'</div>');/* droppable data-name="'+t+'_'+i+'*/
-            /*  nuevo_elem.droppable({ 
+            var nuevo_elem=$('<div class="icono_Comercial" data-name="'+t+'_'+i+'">'+i+'</div>');/* droppable data-name="'+t+'_'+i+'*/
+             nuevo_elem.droppable({ 
                        drop: function( event, ui ) { 
                             value=ui.draggable.html();
                             tipo=ui.draggable.data().name;
-                            pertenece = nro+'_'+this.dataset.name;
+                            pertenece = this.dataset.name;
+                            torre=pertenece.split('_')[0];
 
                             if (tipo=="cochera_cubierta"){
-                                $('#uf_secundarias .torre_'+t+' #hidden_'+value).prop('hidden',false);
-                                $('#uf_secundarias .torre_'+t+' #hidden_'+value).attr( "title", '"'+pertenece+'"' );
-                                $('#cc_dpto_'+pertenece).append('<div class="icono_cc tabla_cc_'+pertenece+'_'+value+'">'+value+'</div>')
+                                $('#uf_secundarias .torre_'+torre+' #hidden_'+value).prop('hidden',false);
+                                $('#uf_secundarias .torre_'+torre+' #hidden_'+value).attr( "title", '"'+pertenece+'"' );
+                                $('#cc_loc_'+pertenece).append('<div class="icono_cc tabla_cc_'+pertenece+'_'+value+'">'+value+'</div>')
                             }
                             else {
                                 if (tipo == "cochera_descubierta") {
-                                     $('#uf_secundarias .torre_'+t+' #hidden_dc_'+value).prop('hidden',false);
-                                     $('#uf_secundarias .torre_'+t+' #hidden_dc_'+value).attr( "title", '"'+pertenece+'"' );
-                                     $('#cd_dpto_'+pertenece).append('<div class="icono_dc tabla_dc_'+pertenece+'_'+value+'">'+value+'</div>')
+                                     $('#uf_secundarias .torre_'+torre+' #hidden_dc_'+value).prop('hidden',false);
+                                     $('#uf_secundarias .torre_'+torre+' #hidden_dc_'+value).attr( "title", '"'+pertenece+'"' );
+                                     $('#cd_loc_'+pertenece).append('<div class="icono_dc tabla_dc_'+pertenece+'_'+value+'">'+value+'</div>')
                                 }
                                 else {
-                                     $('#uf_secundarias .torre_'+t+' #hidden_b_'+value).prop('hidden',false);
-                                     $('#uf_secundarias .torre_'+t+' #hidden_b_'+value).attr( "title", '"'+pertenece+'"' );
-                                     $('#b_dpto_'+pertenece).append('<div class="icono_bau tabla_bau_'+pertenece+'_'+value+'">'+value+'</div>')
+                                     $('#uf_secundarias .torre_'+torre+' #hidden_b_'+value).prop('hidden',false);
+                                     $('#uf_secundarias .torre_'+torre+' #hidden_b_'+value).attr( "title", '"'+pertenece+'"' );
+                                     $('#b_loc_'+pertenece).append('<div class="icono_bau tabla_bau_'+pertenece+'_'+value+'">'+value+'</div>')
                                 }
                             }
                         }, 
                         out: function( event, ui ) { 
                          value=ui.draggable.html();
                              tipo=ui.draggable.data().name;
-                             pertenece = t+'_'+this.dataset.name;
+                             pertenece = this.dataset.name;
+                             torre=pertenece.split('_')[0];
 
                              if (tipo=="cochera_cubierta"){
-                                 $('#uf_secundarias .torre_'+t+' #hidden_'+value).prop('hidden',true);
-                                 $('#cc_dpto_'+pertenece+' .tabla_cc_'+pertenece+'_'+value).remove();
+                                 $('#uf_secundarias .torre_'+torre+' #hidden_'+value).prop('hidden',true);
+                                 $('#cc_loc_'+pertenece+' .tabla_cc_'+pertenece+'_'+value).remove();
                              }
                              else {
                                  if (tipo == "cochera_descubierta") {
-                                      $('#uf_secundarias .torre_'+t+' #hidden_dc_'+value).prop('hidden',true);
-                                      $('#cd_dpto_'+pertenece+' .tabla_dc_'+pertenece+'_'+value).remove();
+                                      $('#uf_secundarias .torre_'+torre+' #hidden_dc_'+value).prop('hidden',true);
+                                      $('#cd_loc_'+pertenece+' .tabla_dc_'+pertenece+'_'+value).remove();
                                  }
                                  else {
-                                      $('#uf_secundarias .torre_'+t+' #hidden_b_'+value).prop('hidden',true);
-                                      $('#b_dpto_'+pertenece+' .tabla_bau_'+pertenece+'_'+value).remove();
+                                      $('#uf_secundarias .torre_'+torre+' #hidden_b_'+value).prop('hidden',true);
+                                      $('#b_loc_'+pertenece+' .tabla_bau_'+pertenece+'_'+value).remove();
                                  }
                              }
                         
                         } 
                     });
 
-                    $('#uf_primarias .torre_'+t+' #list_comercios').append(nuevo_elem);*/
+                    $('#uf_primarias .torre_'+t+' #list_comercios').append(nuevo_elem);
+
+                    if (nro_fila%2==0){
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="tabla_torre_class text_tabla celdas">'+t+'</div>');
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="tabla_uf_prim_class text_tabla celdas">Local Comer. '+i+'</div>');
+
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .locales_torre_"+t).append('<div id="cc_loc_'+t+'_'+i+'" class="fila_33 celdas par_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .locales_torre_"+t).append('<div id="cd_loc_'+t+'_'+i+'" class="fila_33 celdas par_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .locales_torre_"+t).append('<div id="b_loc_'+t+'_'+i+'" class="fila_33 celdas par_sec"></div>');
+
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
+
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+
+                         nro_fila++;
+                    }
+                    else {
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+t+'</div>');
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Local Comer. '+i+'</div>');
+
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .locales_torre_"+t).append('<div id="cc_loc_'+t+'_'+i+'" class="fila_33 celdas impar_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .locales_torre_"+t).append('<div id="cd_loc_'+t+'_'+i+'" class="fila_33 celdas impar_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .locales_torre_"+t).append('<div id="b_loc_'+t+'_'+i+'" class="fila_33 celdas impar_sec"></div>');
+
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
+
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .locales_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+
+                         nro_fila++;
+                    }
            }
 
            $('#todas_'+t+' .loc_com').removeClass('display_none');
@@ -1762,8 +1946,100 @@ $(document).ready(function(){
        else{
            $('.dibujoT_'+nro+' #comercios').removeClass('display_none');
            $('.dibujoT_'+nro+' #list_com').empty();
+           $('#uf_primarias .torre_'+nro+' #agrup_locales_comerciales').removeClass('display_none');
+           $('#uf_primarias .torre_'+nro+' #list_comercios').empty();
            for (i=1;i<=cant;i++){
             $('.dibujoT_'+nro+' #list_com').append('<div class="icono_com">'+i+'</div>');
+
+            var nuevo_elem=$('<div class="icono_Comercial" data-name="'+nro+'_'+i+'">'+i+'</div>');/* droppable data-name="'+t+'_'+i+'*/
+             nuevo_elem.droppable({ 
+                       drop: function( event, ui ) { 
+                            value=ui.draggable.html();
+                            tipo=ui.draggable.data().name;
+                            pertenece = this.dataset.name;
+
+                            if (tipo=="cochera_cubierta"){
+                                $('#uf_secundarias .torre_'+nro+' #hidden_'+value).prop('hidden',false);
+                                $('#uf_secundarias .torre_'+nro+' #hidden_'+value).attr( "title", '"'+pertenece+'"' );
+                                $('#cc_loc_'+pertenece).append('<div class="icono_cc tabla_cc_'+pertenece+'_'+value+'">'+value+'</div>')
+                            }
+                            else {
+                                if (tipo == "cochera_descubierta") {
+                                     $('#uf_secundarias .torre_'+nro+' #hidden_dc_'+value).prop('hidden',false);
+                                     $('#uf_secundarias .torre_'+nro+' #hidden_dc_'+value).attr( "title", '"'+pertenece+'"' );
+                                     $('#cd_loc_'+pertenece).append('<div class="icono_dc tabla_dc_'+pertenece+'_'+value+'">'+value+'</div>')
+                                }
+                                else {
+                                     $('#uf_secundarias .torre_'+nro+' #hidden_b_'+value).prop('hidden',false);
+                                     $('#uf_secundarias .torre_'+nro+' #hidden_b_'+value).attr( "title", '"'+pertenece+'"' );
+                                     $('#b_loc_'+pertenece).append('<div class="icono_bau tabla_bau_'+pertenece+'_'+value+'">'+value+'</div>')
+                                }
+                            }
+                        }, 
+                        out: function( event, ui ) { 
+                         value=ui.draggable.html();
+                             tipo=ui.draggable.data().name;
+                             pertenece = this.dataset.name;
+
+                             if (tipo=="cochera_cubierta"){
+                                 $('#uf_secundarias .torre_'+nro+' #hidden_'+value).prop('hidden',true);
+                                 $('#cc_loc_'+pertenece+' .tabla_cc_'+pertenece+'_'+value).remove();
+                             }
+                             else {
+                                 if (tipo == "cochera_descubierta") {
+                                      $('#uf_secundarias .torre_'+nro+' #hidden_dc_'+value).prop('hidden',true);
+                                      $('#cd_loc_'+pertenece+' .tabla_dc_'+pertenece+'_'+value).remove();
+                                 }
+                                 else {
+                                      $('#uf_secundarias .torre_'+nro+' #hidden_b_'+value).prop('hidden',true);
+                                      $('#b_loc_c'+pertenece+' .tabla_bau_'+pertenece+'_'+value).remove();
+                                 }
+                             }
+                        
+                        } 
+                    });
+
+                    $('#uf_primarias .torre_'+nro+' #list_comercios').append(nuevo_elem);
+
+                    if (nro_fila%2==0){
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="tabla_torre_class text_tabla celdas">'+nro+'</div>');
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="tabla_uf_prim_class text_tabla celdas">Local Comer. '+i+'</div>');
+
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div id="cc_loc_'+nro+'_'+i+'" class="fila_33 celdas par_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div id="cd_loc_'+nro+'_'+i+'" class="fila_33 celdas par_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div id="b_loc_'+nro+'_'+i+'" class="fila_33 celdas par_sec"></div>');
+
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
+
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+
+                         nro_fila++;
+                    }
+                    else {
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+nro+'</div>');
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Local Comer. '+i+'</div>');
+
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div id="cc_loc_'+nro+'_'+i+'" class="fila_33 celdas impar_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div id="cd_loc_'+nro+'_'+i+'" class="fila_33 celdas impar_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div id="b_loc_'+nro+'_'+i+'" class="fila_33 celdas impar_sec"></div>');
+
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
+
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .locales_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+
+                         nro_fila++;
+                    }
+
            }
 
            $('#todas_'+nro+' .loc_com').removeClass('display_none');

@@ -12,8 +12,8 @@
 
         <link rel="stylesheet" href="css/styles.css"> 
         <link rel="stylesheet" href="css/fonts.css" type="text/css" media="screen" />
-        <link rel="stylesheet" href="css/demo.css"> 
-        <!--
+      <!--  <link rel="stylesheet" href="css/demo.css"> 
+        
         <link rel="stylesheet" href="css/bootstrap.css"> 
         
         <link rel="stylesheet" href="css/foundation.css"> 
@@ -33,7 +33,8 @@
              Alta de Administrador
              </div>
          </div>   
-        <div class="main-content content" id="main-content"> 
+        <div class="main-content" id="main-content"> 
+        <div class="content">
             <div class="menu_pasos">
                 <div id="paso_1" class="pasos">
                     Paso 1
@@ -105,7 +106,8 @@
                     include_once('templates/footer.php');
                 ?>
             </footer>
-		</div> <!-- main-content --> 
+		</div>
+        </div> <!-- main-content --> 
     
 	<script type="text/javascript" src="js/jquery-ui/jquery-1.9.1.js"></script>
 	<script type="text/javascript" src="js/jquery-ui/ui/jquery-ui.js"></script>

@@ -125,7 +125,28 @@ cuadro de las UF secundarias.</p>
       <div id="tabla_uf_prim" class="tabla_uf_prim_class encabezado_tabla oscuro">
         uf. primarias
       </div>
-      <div id="cuerpo_tabla_edif"></div>
+      <div id="cuerpo_tabla_edif">
+        <div class="tabla_torre_1">
+          <div class="locales_torre_1"></div>
+          <div class="pb_torre_1"></div>
+          <div class="dptos_torre_1"></div>
+        </div>
+        <div class="tabla_torre_2">
+          <div class="locales_torre_2"></div>
+          <div class="pb_torre_2"></div>
+          <div class="dptos_torre_2"></div>
+        </div>
+        <div class="tabla_torre_3">
+          <div class="locales_torre_3"></div>
+          <div class="pb_torre_3"></div>
+          <div class="dptos_torre_3"></div>
+        </div>
+        <div class="tabla_torre_4">
+          <div class="locales_torre_4"></div>
+          <div class="pb_torre_4"></div>
+          <div class="dptos_torre_4"></div>
+        </div>
+      </div>
     </div>
       <div class="secundarias">
         <div class="tabla_title blue">uf. secundarias</div>
@@ -138,7 +159,28 @@ cuadro de las UF secundarias.</p>
         <div id="bauleras" class="fila_33 encabezado_tabla celeste">
           baulera
         </div>
-        <div id="cuerpo_tabla_sec"></div>
+        <div id="cuerpo_tabla_sec">
+          <div class="tabla_torre_1">
+            <div class="locales_torre_1"></div>
+            <div class="pb_torre_1"></div>
+            <div class="dptos_torre_1"></div>
+          </div>
+          <div class="tabla_torre_2">
+            <div class="locales_torre_2"></div>
+            <div class="pb_torre_2"></div>
+            <div class="dptos_torre_2"></div>
+          </div>
+          <div class="tabla_torre_3">
+            <div class="locales_torre_3"></div>
+            <div class="pb_torre_3"></div>
+            <div class="dptos_torre_3"></div>
+          </div>
+          <div class="tabla_torre_4">
+            <div class="locales_torre_4"></div>
+            <div class="pb_torre_4"></div>
+            <div class="dptos_torre_4"></div>
+          </div>
+        </div>
       </div>
       <div class="propietarios dark_grey">
         <div class="tabla_title">propietario</div>
@@ -155,6 +197,26 @@ cuadro de las UF secundarias.</p>
           miembro consejo admin.
         </div>
         <div id="cuerpo_tabla_prop">
+          <div class="tabla_torre_1">
+            <div class="locales_torre_1"></div>
+            <div class="pb_torre_1"></div>
+            <div class="dptos_torre_1"></div>
+          </div>
+          <div class="tabla_torre_2">
+            <div class="locales_torre_2"></div>
+            <div class="pb_torre_2"></div>
+            <div class="dptos_torre_2"></div>
+          </div>
+          <div class="tabla_torre_3">
+            <div class="locales_torre_3"></div>
+            <div class="pb_torre_3"></div>
+            <div class="dptos_torre_3"></div>
+          </div>
+          <div class="tabla_torre_4">
+            <div class="locales_torre_4"></div>
+            <div class="pb_torre_4"></div>
+            <div class="dptos_torre_4"></div>
+          </div>
         </div>
       </div>
       <div class="inquilinos">
@@ -169,6 +231,26 @@ cuadro de las UF secundarias.</p>
           eMail
         </div>
         <div id="cuerpo_tabla_inq">
+          <div class="tabla_torre_1">
+            <div class="locales_torre_1"></div>
+            <div class="pb_torre_1"></div>
+            <div class="dptos_torre_1"></div>
+          </div>
+          <div class="tabla_torre_2">
+            <div class="locales_torre_2"></div>
+            <div class="pb_torre_2"></div>
+            <div class="dptos_torre_2"></div>
+          </div>
+          <div class="tabla_torre_3">
+            <div class="locales_torre_3"></div>
+            <div class="pb_torre_3"></div>
+            <div class="dptos_torre_3"></div>
+          </div>
+          <div class="tabla_torre_4">
+            <div class="locales_torre_4"></div>
+            <div class="pb_torre_4"></div>
+            <div class="dptos_torre_4"></div>
+          </div>
         </div>
       </div>
    </div>
