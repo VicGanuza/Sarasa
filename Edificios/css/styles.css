@@ -240,7 +240,7 @@ header img{
 }
 .content{
 	margin: 0 auto;
-	max-width: 1000px;
+	max-width: 962px;
 }
 .header{
 	background-color: #57ACCE;
@@ -306,7 +306,7 @@ header img{
 }
 .formulario{
 	box-shadow: 0px 0px 25px 3px #E6E6E6;
-	width: 1007px;
+	width: 990px;
 	float: left;
 	margin-left: -14px;
 }
@@ -314,7 +314,7 @@ header img{
 	background-color: #F7F7F7;
 	padding: 0px 14px 0px 14px;
 	float: left;
-	width: 979px;
+	width: 960px;
 	border-top: 1px solid #E6E6E6;
 	border-bottom: 1px solid #E6E6E6;
 }
@@ -333,7 +333,7 @@ header img{
 	float: right;
 }
 .formulario_altas{
-	width: 993px;
+	width: 977px;
 	float: left;
 	padding: 11px 0px 0px 14px;
 	margin-bottom: 20px;
@@ -447,7 +447,7 @@ header img{
 	-moz-box-shadow: 10px 2px 14px 4px #E6E6E6;
 	box-shadow: 10px 2px 14px 4px #E6E6E6;
 	float: left;
-	width: 979px;
+	width: 963px;
 	background-color: #ffffff;
 }
 #encabezado_consorcio img{
@@ -471,7 +471,7 @@ header img{
 .franja_gris_claro{
 	float: left;
 	padding: 12px 14px 0px 14px;
-	width: 979px;
+	width: 963px;
 	height: 40px;
 	background-color: #f7f7f7;
 	text-transform: uppercase;
@@ -505,7 +505,7 @@ header img{
 	margin-top: 34px;
 }
 .ing_torres{
-	width: 993px;
+	width: 977px;
 	border-bottom: 1px solid #E6E6E6;
 	height: 90px;
 	margin-left: -14px;
@@ -543,7 +543,7 @@ header img{
 	margin-left: -14px;
 }
 .columna_ingreso{
-	width: 523px;
+	width: 500px;
 	float: left;
 }
 .div_input{
@@ -831,45 +831,78 @@ header img{
     position: relative;
     width: 23px; 
 }
+.helps.dpto-12{
+	width: 25px;
+}
 .dpto-11 {
     position: relative;
     width: 25.2px; 
+}
+.helps.dpto-11{
+	width: 27.2px;
 }
 .dpto-10 {
     position: relative;
     width: 28px; 
 }
+.helps.dpto-10{
+	width: 30px;
+}
 .dpto-9 {
   position: relative;
   width: 31.3px; 
+}
+.helps.dpto-9{
+	width: 33.3px;
 }
 .dpto-8{
   position: relative;
   width: 35.5px; 
 }
+.helps.dpto-8{
+	width: 37.5px;
+}
 .dpto-7 {
   position: relative;
   width: 13.6%; 
+}
+.helps.dpto-7{
+	width: 42.6px;
 }
 .dpto-6 {
   position: relative;
   width: 48px; 
 }
+.helps.dpto-6{
+	width: 50px;
+}
 .dpto-5 {
   position: relative;
   width: 58px; 
+}
+.helps.dpto-5{
+	width: 60px;
 }
 .dpto-4 {
   position: relative;
   width: 73px; 
 }
+.helps.dpto-4{
+	width: 75px;
+}
 .dpto-3 {
   position: relative;
   width: 98px; 
 }
+.helps.dpto-3{
+	width: 100px;
+}
 .dpto-2 {
   position: relative;
   width: 148px; 
+}
+.helps.dpto-2{
+	width: 149px;
 }
 .dpto-1{
 	position: relative;
@@ -1085,7 +1118,7 @@ header img{
 	margin-bottom: 10px;
 }
 .principales{
-	width: 170px;
+	width: 165px;
 	float: left;
 	border-top: 2px solid #E68C28;
 	margin-right: 2px;
@@ -1096,7 +1129,7 @@ header img{
 	float: left;
 }
 .tabla_uf_prim_class{
-	width: 113px;
+	width: 108px;
 	float: left;
 }
 .tabla_title{
@@ -1104,14 +1137,14 @@ header img{
 	text-transform: uppercase;
 }
 .secundarias{
-	width: 260px;
+	width: 250px;
 	float: left;
 	border-top: 2px solid #808080;
 	margin-right: 2px;
 	border-bottom: 1px solid #808080;
 }
 .propietarios{
-	width: 270px;
+	width: 268px;
 	float: left;
 	border-top: 2px solid;
 	margin-right: 2px;
@@ -1348,10 +1381,11 @@ header img{
 #consorcio_agrup .nombre_edificio{
   border-right: none;
 }
+
 .vista_vertodas{
     background-color: #f7f7f7;
 	height: 1330px;
-	width: 0;
+	width:0px;
 	overflow:hidden;
 	padding-top: 50px;
 	position: absolute;
@@ -1361,9 +1395,19 @@ header img{
 	right:0; 
 	box-shadow: 0px 6px 10px 3px #d5d5d5; 
 	transition:0.4s; 
+	float: right;
+	/*transition: all 400ms ease-out;*/
 }
 .vista_vertodas.visible { width:970px; }
-
+.vista_vertodas.activa{
+	position: absolute;
+	width:970px;
+}
+.vista_vertodas.hidden{
+	width: 0;
+	padding: 0;
+	overflow: hidden;
+}
 .torre_name{
 	float: left;
 	height: 30px;
@@ -1528,6 +1572,36 @@ float: left;
 }
 
 /* help_hover */
+.helps:hover{
+	position: relative;
+}
+.helps span{
+	display: none;
+}
+.helps:hover span{
+  display: block;
+  position: absolute;
+  top: 100%;
+  font-size:11px; 
+  color:#fff; 
+  border:1px solid #fff; 
+  background:#323232; 
+  font-family: 'LucidaGrandeRegular'; 
+  text-align:center; 
+  padding:8px 10px; 
+  white-space: nowrap; 
+  box-shadow: 0px 0px 8px 3px #d5d5d5; 
+  z-index:99; 
+  text-transform: none;
+}
+#uf_cant .helps{
+	width: 42px;
+	height: 32px;
+}
+.helps_dptos{
+	height: 31px;
+	float: left;
+}
 .help_hover { position:absolute; font-size:11px; color:#fff; border:1px solid #fff; background:#323232; font-family: 'LucidaGrandeRegular'; text-align:center; padding:8px 10px; white-space: nowrap; box-shadow: 0px 0px 8px 3px #d5d5d5; display:none; top:-38px; z-index:99; margin-left: -25px; text-transform: none;}
 .help_hover img { position: absolute; left: 0; right: 0; margin-left: auto; margin-right: auto; bottom: -9px; }
 .help_hover.aside img { left: -9px; margin: 0; bottom: 11px; right: initial; }
@@ -1565,8 +1639,6 @@ float: left;
 }
 .dibujo_edif .column, .dibujo_edif .columns{
 	border: 1px solid #E68C28;
-	font-size: 13px;
-	font-weight: bold;
 	text-indent: 3px;
 	padding-top: 8px;
 	color: #444;
@@ -1589,7 +1661,7 @@ float: left;
 	float: left;
 	position: absolute;
 	top: 440px;
-	left: 450px;
+	left: 435px;
 }
 #agrup_locales_comerciales .vista_comercios{
 	float: left;

@@ -12,7 +12,15 @@
 
         <link rel="stylesheet" href="css/styles.css"> 
         <link rel="stylesheet" href="css/fonts.css" type="text/css" media="screen" />
-      <!--  <link rel="stylesheet" href="css/demo.css"> 
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+           
+          <!--      <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+        <script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery.ui.touch-punch.min.js"></script>
+
+
+<link rel="stylesheet" href="css/demo.css"> 
         
         <link rel="stylesheet" href="css/bootstrap.css"> 
         
@@ -33,8 +41,8 @@
              Alta de Administrador
              </div>
          </div>   
-        <div class="main-content" id="main-content"> 
-        <div class="content">
+        <div class="main-content content" id="main-content"> 
+      <!-- <div class="content">-->
             <div class="menu_pasos">
                 <div id="paso_1" class="pasos">
                     Paso 1
@@ -106,7 +114,7 @@
                     include_once('templates/footer.php');
                 ?>
             </footer>
-		</div>
+		<!--</div>-->
         </div> <!-- main-content --> 
     
 	<script type="text/javascript" src="js/jquery-ui/jquery-1.9.1.js"></script>

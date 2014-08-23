@@ -30,11 +30,11 @@
    <div id="person_dib">
    </div>
  </div>
- <div class="confirmar_person">
+ <div class="confirmar_person helps">
   <img src="images/sprite/img_05.jpg">
-  <div class="help_hover">
-    <div>Confirmar</div>
-    <img src="images/sprite/img_10.jpg">
-  </div>
+  <span>
+    Confirmar
+    
+  </span>
  </div>
 </div>
