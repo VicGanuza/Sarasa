@@ -57,7 +57,7 @@
    </select>  
  </div>
  <form class="personalizada">
- <input type="checkbox" name="denominacion_lc" id="denom_lc" class="pointer">Personalizar denominación
+ <!--<input type="checkbox" name="denominacion_lc" id="denom_lc" class="pointer">Personalizar denominación-->
 </form>
 </div>
 <div class='div_input border_bottom'>
@@ -72,7 +72,7 @@
    </select>  
   </div>
   <form class="personalizada">
-   <input type="checkbox" name="denominacion_cc" id="denom_cc" class="pointer">Personalizar denominación
+   <!--<input type="checkbox" name="denominacion_cc" id="denom_cc" class="pointer">Personalizar denominación-->
   </form>
 </div>
 <div class='div_input border_bottom'>
@@ -87,7 +87,7 @@
     </select>  
   </div>
   <form class="personalizada">
-   <input type="checkbox" name="denominacion_cd" id="denom_cd" class="pointer">Personalizar denominación
+   <!--<input type="checkbox" name="denominacion_cd" id="denom_cd" class="pointer">Personalizar denominación-->
   </form>
 </div>
 <div class='div_input border_bottom'>
@@ -102,7 +102,7 @@
    </select>  
   </div>
   <form class="personalizada">
-   <input type="checkbox" name="denominacion_b" id="denom_b" class="pointer">Personalizar denominación
+   <!-- <input type="checkbox" name="denominacion_b" id="denom_b" class="pointer">Personalizar denominación-->
   </form>
 </div>
 <div class="franja_gris_claro">

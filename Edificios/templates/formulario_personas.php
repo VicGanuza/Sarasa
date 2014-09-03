@@ -1,4 +1,4 @@
-<div id="formulario_persona">
+<div id="formulario_persona" class="validationEngineContainer">
    <div class="notes">
      <div class="coments coment1">
        <div><span class="orange">*</span>
@@ -13,11 +13,11 @@
     <div class="datos">
      <div class="dato_input">
        <p><span class="orange">*</span> Nombre</p>
-       <input type="text" name="nombre">
+       <input type="text" name="nombre" class="validate[required]">
      </div>
      <div class="dato_input">
        <p><span class="orange">*</span> Apellido</p>
-       <input type="text" name="apellido">
+       <input type="text" name="apellido" class="validate[required]">
      </div>
      <div class="dato_input">
        <input type="checkbox" name="razon_social" id="razon_social">
@@ -40,16 +40,16 @@
      <div class="datos_large">
      <div class="dato_mail">
        <p><span class="orange">*</span> e-mail (será tu nombre de usuario) </p>
-       <input type="text" name="email" class="input_large">
+       <input type="text" name="email" class="input_large validate[required, custom[email]]">
      </div>
      <div class="dato_mail">
        <p><span class="orange">*</span> Contraseña (mínimo 6 caracteres) </p>
-       <input type="password" name="contrasena" class="input_large">
+       <input type="password" name="contrasena" id="contrasena" class="input_large validate[required]">
        <span class="grey left">La contraseña debe contener letras y números</span>
      </div>
      <div class="dato_mail button_20">
        <p><span class="orange">*</span> Repetir contraseña </p>
-       <input type="password" name="rep_contra" class="input_large">
+       <input type="password" name="rep_contra" class="input_large validate[required,equals[contrasena]]">
      </div>
      </div>
      <div class="datos_large">
@@ -72,7 +72,7 @@
        </div>
        <div class="dato_input">
         <p> <span class="orange">*</span> Provincia </p>
-         <select id="provincia">
+         <select id="provincia" class="validate[required]">
            <option value=""></option>
            <option value="Buenos Aires">Buenos Aires</option>
            <option value="Cordoba">Cordoba</option>
@@ -82,7 +82,7 @@
        </div>
        <div class="dato_input">
         <p> <span class="orange">*</span> Localidad </p>
-         <select id="localidad">
+         <select id="localidad" class="validate[required]">
            <option value=""></option>
            <option value="Buenos Aires">Buenos Aires</option>
            <option value="Cordoba">Cordoba</option>
@@ -98,11 +98,11 @@
        </div>
        <div class="dato_input">
         <p> <span class="orange">*</span> Teléfono de emergencias </p>
-         <input type="text" name="emergencia">
+         <input type="text" name="emergencia" class="validate[required, custom[phone]]">
        </div>
        <div class="dato_input large_input">
         <p> <span class="orange">*</span> CUIT </p>
-         <input type="text" name="Cuit" class="input_large">
+         <input type="text" name="Cuit" class="input_large" class="validate[required]">
        </div>
        </div>
        <div class="datos">

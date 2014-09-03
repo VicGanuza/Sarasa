@@ -12,21 +12,13 @@
 
         <link rel="stylesheet" href="css/styles.css"> 
         <link rel="stylesheet" href="css/fonts.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css"/>
+
 
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
            
-          <!--      <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-        <script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery.ui.touch-punch.min.js"></script>
-
-
-<link rel="stylesheet" href="css/demo.css"> 
-        
-        <link rel="stylesheet" href="css/bootstrap.css"> 
-        
-        <link rel="stylesheet" href="css/foundation.css"> 
--->
-	</head>
+       
+    </head>
 
     <body>  
 		<header>
@@ -117,9 +109,12 @@
 		<!--</div>-->
         </div> <!-- main-content --> 
     
-	<script type="text/javascript" src="js/jquery-ui/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui/ui/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/funciones.js"></script>
-		
+    <script src="js/languages/jquery.validationEngine-es.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+    
+	
     </body>
 </html>      

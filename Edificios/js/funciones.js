@@ -1,10 +1,17 @@
 $(document).ready(function(){
 
-    /*tooltips*/
-    $('.formulario').on('mouseenter','.tooltips',function(event){
-        $("#flotante").html($(this).attr("content"));
-        $("#flotante").css({left:event.pageX+5, top:event.pageY+5, display:"block"});
+    /*Validation*/
+    
+    $("#formulario_persona").validationEngine();
+    $(".submit").click(function(){
+      jQuery("#formulario_persona").validationEngine('validate');
     });
+    
+    $("#formulario_consorcio").validationEngine();
+    $(".submit").click(function(){
+      jQuery("#formulario_consorcio").validationEngine('validate');
+    });
+     
 
     $(".formulario").on('mouseleave','.tooltips',function(event){
         // Escondemos el div flotante
@@ -75,7 +82,7 @@ $(document).ready(function(){
             $('#titulo .titles').html('Bienvenido a <span class="blue">Consorcio</span>abierto.');
             $('#titulo .subtitles').html('Ingresa tus datos y empeza a optimizar tu manera de trabajar.');
 
-            $('#formulario_concorcio').addClass('display_none');
+            $('#formulario_consorcio').addClass('display_none');
             $('#form_agrupacion').addClass('display_none');
             $('#estructura_edificio').addClass('display_none');
             $('#formulario_persona').removeClass('display_none');
@@ -93,7 +100,7 @@ $(document).ready(function(){
                 $('#titulo_header .content').html('Alta de consorcio');
                 $('#titulo .titles').html('Ingres&aacute; los datos del consorcio a configurar.');
                 $('#titulo .subtitles').html('');
-                $('#formulario_concorcio').removeClass('display_none');
+                $('#formulario_consorcio').removeClass('display_none');
                 $('#formulario_persona').addClass('display_none');
                 $('#estructura_edificio').addClass('display_none');
                 $('#form_agrupacion').addClass('display_none');
@@ -112,7 +119,7 @@ $(document).ready(function(){
                     $('#titulo_header .content').html('Configuraci&oacute;n de la estructura f&iacute;sica del consorcio');
                     $('#titulo .titles').html('Diagram&aacute; la estructura f&iacute;sica del edificio.');
                     $('#titulo .subtitles').html('');
-                    $('#formulario_concorcio').addClass('display_none');
+                    $('#formulario_consorcio').addClass('display_none');
                     $('#formulario_persona').addClass('display_none');
                     $('#estructura_edificio').removeClass('display_none');
                     $('#form_agrupacion').addClass('display_none');
@@ -130,33 +137,38 @@ $(document).ready(function(){
     });
 
     $('#confirmar_paso1').on('click',function(){
-        $('#titulo_header .content').html('Alta de consorcio');
-        $('#paso_1').addClass('paso_done');
-        $('#paso_1').addClass('paso_accesible');
-        $('#paso_2').removeClass('paso_grey');
-        $('#titulo .titles').html('Ingres&aacute; los datos del consorcio a configurar.');
-        $('#titulo .subtitles').html('');
+       //if ($("#formulario_persona").validationEngine('validate')==true){
+            $('#titulo_header .content').html('Alta de consorcio');
+            $('#paso_1').addClass('paso_done');
+            $('#paso_1').addClass('paso_accesible');
+            $('#paso_2').removeClass('paso_grey');
+            $('#titulo .titles').html('Ingres&aacute; los datos del consorcio a configurar.');
+            $('#titulo .subtitles').html('');
 
-        $('.terminos').addClass('display_none');
-        $('#confirmar_paso1').addClass('display_none');
-        $('#confirmar_paso2').removeClass('display_none');
-        $('#formulario_persona').addClass('display_none');
-        $('#formulario_concorcio').removeClass('display_none');
+            $('.terminos').addClass('display_none');
+            $('#confirmar_paso1').addClass('display_none');
+            $('#confirmar_paso2').removeClass('display_none');
+            $('#formulario_persona').addClass('display_none');
+            $('#formulario_consorcio').removeClass('display_none');
+        //}
     });
 
 
     $('#confirmar_paso2').on('click',function(){
+   
+     //if ($("#formulario_consorcio").validationEngine('validate')==true){
         $('#titulo_header .content').html('Configuraci&oacute;n de la estructura f&iacute;sica del consorcio');
         $('#paso_2').addClass('paso_done');
         $('#paso_2').addClass('paso_accesible');
         $('#paso_3').removeClass('paso_grey');
         $('#titulo .titles').html('Diagram&aacute; la estructura f&iacute;sica del edificio.');
 
-        $('#formulario_concorcio').addClass('display_none');
+        $('#formulario_consorcio').addClass('display_none');
         $('#confirmar_paso2').addClass('display_none');
         $('#confirmar_paso3').removeClass('display_none');
         /*Falta validar formulario dos*/
         $('#estructura_edificio').removeClass('display_none');
+    //    }
     });
 
 
@@ -527,6 +539,13 @@ $(document).ready(function(){
                 $('#todas_'+t+' #verTodas_num').empty();
                 $('#uf_primarias .torre_'+t+' #pisos_num_uf_prim').empty();
 
+                 /*Limpia la tabla nueva configuracion*/
+                 $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .pb_torre_"+t).empty();
+                $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .pb_torre_"+t).empty();
+                $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .pb_torre_"+t).empty();
+                $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .pb_torre_"+t).empty();
+
+
                 /*Se muestras los dibujos*/
                 $('.dibujoT_'+t+' .mensaje').addClass('display_none');
                 $('.dibujoT_'+t+' #edif_dibujo').removeClass('display_none');
@@ -629,6 +648,12 @@ $(document).ready(function(){
             $('#todas_'+nro+' #edificio_todas').empty();
             $('#todas_'+nro+' #verTodas_num').empty();
             $('#uf_primarias .torre_'+nro+' #pisos_num_uf_prim').empty();
+
+            /*Limpia la tabla nueva configuracion*/
+            $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .pb_torre_"+nro).empty();
+            $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .pb_torre_"+nro).empty();
+            $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .pb_torre_"+nro).empty();
+            $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .pb_torre_"+nro).empty();
         
             $('.dibujoT_'+nro+' .mensaje').addClass('display_none');
             $('.dibujoT_'+nro+' #edif_dibujo').removeClass('display_none');
@@ -829,13 +854,18 @@ $(document).ready(function(){
             for (t=1;t<=cant_torres;t++){
              /*Se asigna la misma cantidad de pisos a las otras torres*/
              $('.torre_'+t+'  #cant_deptos option[value='+ cant_deptos +']').attr("selected",true);
+                
+             $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).empty();
+             $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).empty();
+             $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).empty();
+             $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).empty();
 
              /* Agrega los departamentos por piso */
              for (i=1;i<=cant_pisos;i++){
                 $('.dibujoT_'+t+' #piso_nro_'+i).empty();
                 $('#prim_content .torre_'+t+' #uf_prim_piso_nro_'+i).empty();
                 $('#todas_'+t+' #todas_piso_nro_'+i).empty();
-
+                
                 for (k=1;k<=cant_deptos;k++){
                     $('.dibujoT_'+t+' #piso_nro_'+i).append('<div id="dpto_nro_'+i+'_'+k+'" class="dpto-'+cant_deptos+' column dpto"></div>');
                     nuevo_elem = $('<div id="uf_prim_dpto_nro_'+i+'_'+k+'" class="dpto-'+cant_deptos+' column dpto droppable" data-name="'+t+'_'+i+'_'+k+'"></div>')
@@ -941,11 +971,16 @@ $(document).ready(function(){
 
     	else{
         /* Agrega los departamentos por piso */
+         $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).empty();
+            $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).empty();
+            $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).empty();
+            $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).empty();
+
     	for (i=1;i<=cant_pisos;i++){
     		$('.dibujoT_'+nro+' #piso_nro_'+i).empty();
             $('#prim_content .torre_'+nro+' #uf_prim_piso_nro_'+i).empty();
             $('#todas_'+nro+' #todas_piso_nro_'+i).empty();
-
+           
     		for (k=1;k<=cant_deptos;k++){
     			$('.dibujoT_'+nro+' #piso_nro_'+i).append('<div id="dpto_nro_'+i+'_'+k+'" class="dpto-'+cant_deptos+' column dpto"></div>');
                 nuevo_elem = $('<div id="uf_prim_dpto_nro_'+i+'_'+k+'" class="dpto-'+cant_deptos+' column dpto droppable" data-name="'+i+'_'+k+'"></div>')
@@ -1174,15 +1209,25 @@ $(document).ready(function(){
                 $('.dibujoP_'+t+' #'+nombre).addClass('piso_listo');
                 $('.dibujoP_'+t+' [name=piso_'+p+']').val(dptos);
                 $('.dibujoP_'+t+' #piso_nro_'+p).empty();
-                $('#prim_content .torre_'+t+' #uf_prim_piso_nro_'+p).empty();
+                $('#prim_content .torre_'+t+' #edificio_uf_prim #uf_prim_piso_nro_'+p).empty();
                 $('#todas_'+t+' #todas_piso_nro_'+p).empty();
+                $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).empty();
+                $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).empty();
+                $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).empty();
+                $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).empty();
+
               }
             }
             else{
                 $('.dibujoP_'+nro+' #'+nombre).addClass('piso_listo');
                 $('.dibujoP_'+nro+' #piso_nro_'+p).empty();
-                $('#prim_content .torre_'+nro+' #uf_prim_piso_nro_'+p).empty();
+                $('#prim_content .torre_'+nro+' #edificio_uf_prim #uf_prim_piso_nro_'+p).empty();
                 $('#todas_'+nro+' #todas_piso_nro_'+p).empty();
+                $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).empty();
+                $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).empty();
+                $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).empty();
+                $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).empty();
+
             }
 
             
@@ -1247,6 +1292,14 @@ $(document).ready(function(){
             /*Si las torres son iguales...*/
             if ($('#torres_iguales').is(':checked') && (nro==1)){
              for(t=1;t<=cant_torres;t++){
+                if ($('#cuerpo_tabla_edif .tabla_torre_'+t+' .piso_'+p).length == 0){
+                   $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="piso_'+p+'"></div>');
+                   $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="piso_'+p+'"></div>');
+                   $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="piso_'+p+'"></div>');
+                   $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="piso_'+p+'"></div>');
+ 
+                }
+                
                for (d=1;d<=dptos;d++){
                    nuevo_elem = $('<div id="uf_prim_dpto_nro_'+p+'_'+d+'" class="dpto-'+dptos+' column dpto droppable" data-name="'+t+'_'+p+'_'+d+'"></div>')
                    nuevo_elem.droppable({ 
@@ -1300,50 +1353,59 @@ $(document).ready(function(){
                                 }
                            } 
                    });
+
                    $('#uf_primarias .torre_'+t+' #uf_prim_piso_nro_'+p).append(nuevo_elem);
+                    
 
                     /*Carga los datos del departamento en la tabla final*/
                      if (nro_fila%2==0){
-                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_torre_class text_tabla celdas">'+t+'</div>');
-                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_uf_prim_class text_tabla celdas">Dpto. '+p+'_'+d+'</div>');
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="tabla_torre_class text_tabla celdas">'+t+'</div>');'+p+'
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="tabla_uf_prim_class text_tabla celdas">Dpto. '+p+'_'+d+'</div>');
 
-                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cc_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
-                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cd_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
-                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="b_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div id="cc_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div id="cd_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div id="b_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
 
-                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');'+p+'
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
 
-                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
-                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
-                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');'+p+'
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
 
                         nro_fila++;
                     } //if tabla par
                     else {
-                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+t+'</div>');
-                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Dpto. '+p+'_'+d+'</div>');
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+t+'</div>');
+                        $( "#cuerpo_tabla_edif .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Dpto. '+p+'_'+d+'</div>');
 
-                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cc_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
-                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="cd_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
-                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t).append('<div id="b_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div id="cc_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div id="cd_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                        $( "#cuerpo_tabla_sec .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div id="b_dpto_'+t+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
 
-                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_prop .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
 
-                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
-                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
-                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                        $( "#cuerpo_tabla_inq .tabla_torre_"+t+" .dptos_torre_"+t+" .piso_"+p).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
                          nro_fila++;
                     }
                   }
                 }
               }
               else{
+                if ($('#cuerpo_tabla_edif .tabla_torre_'+nro+' .piso_'+p).length == 0){
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="piso_'+p+'"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="piso_'+p+'"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="piso_'+p+'"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="piso_'+p+'"></div>');
+                }
+
                 for (d=1;d<=dptos;d++){
                 nuevo_elem = $('<div id="uf_prim_dpto_nro_'+p+'_'+d+'" class="dpto-'+dptos+' column dpto droppable" data-name="'+nro+'_'+p+'_'+d+'"></div>')
                 nuevo_elem.droppable({ 
@@ -1398,41 +1460,42 @@ $(document).ready(function(){
               $('#uf_primarias .torre_'+nro+' #uf_prim_piso_nro_'+p).append(nuevo_elem);
                         
             /*Carga los datos del departamento en la tabla final*/
+
               if (nro_fila%2==0){
-                    $("#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="tabla_torre_class text_tabla celdas">'+nro+'</div>');
-                    $("#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="tabla_uf_prim_class text_tabla celdas">Dpto. '+p+'_'+d+'</div>');
+                    $("#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="tabla_torre_class text_tabla celdas">'+nro+'</div>');
+                    $("#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="tabla_uf_prim_class text_tabla celdas">Dpto. '+p+'_'+d+'</div>');
 
-                    $("#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="cc_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
-                    $("#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="cd_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
-                    $("#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="b_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                    $("#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div id="cc_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                    $("#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div id="cd_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
+                    $("#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div id="b_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas par_sec"></div>');
 
-                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
-                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
+                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_25 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_25 celdas text_tabla"><input type="checkbox" id="es_miembro"></div>');
 
-                    $("#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
-                    $("#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
-                    $("#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
+                    $("#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_33 celdas text_tabla" contenteditable="true"></div>');
 
                     nro_fila++;
                 }//if tabla par
                 else {
-                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+nro+'</div>');
-                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Dpto. '+p+'_'+d+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="tabla_torre_class text_tabla celdas impar_ppal">'+nro+'</div>');
+                    $( "#cuerpo_tabla_edif .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="tabla_uf_prim_class text_tabla celdas impar_ppal">Dpto. '+p+'_'+d+'</div>');
 
-                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="cc_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
-                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="cd_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
-                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div id="b_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div id="cc_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div id="cd_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
+                    $( "#cuerpo_tabla_sec .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div id="b_dpto_'+nro+'_'+p+'_'+d+'" class="fila_33 celdas impar_sec"></div>');
 
-                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_25 celdas text_tabla impar_ppal" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_prop .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_25 celdas text_tabla impar_ppal"><input type="checkbox" id="es_miembro"></div>');
 
-                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
-                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
+                    $( "#cuerpo_tabla_inq .tabla_torre_"+nro+" .dptos_torre_"+nro+" .piso_"+p).append('<div class="fila_33 celdas text_tabla impar_inq" contenteditable="true"></div>');
                      nro_fila++;
                 }//else tabla impar
              }//for d dptos
@@ -2207,9 +2270,7 @@ $(document).ready(function(){
            for (i=1;i<=cant;i++){
             $('.dibujoT_'+t+'  #list_cc').append('<div class="icono_cc" >'+i+'</div>');
             nuevo_elem = $('<div class="icono_cc" data-name=cochera_cubierta>'+i+'</div>');
-            nuevo_elem.draggable({
-                 revert: "invalid"
-            });
+            nuevo_elem.draggable(/*{ revert: "invalid"}*/);
             $('#uf_secundarias .torre_'+t+' #list_cc').append(nuevo_elem);
             $('#uf_secundarias .torre_'+t+' #list_cc').append('<div class="help_hidden"><div id="hidden_'+i+'" class="icono_cc_done" hidden=true>'+i+'</div><div class="help_hover">1A<div></div><img src="images/icon-arrow-up.png" style="top:-9px"></div></div>');
            }
@@ -2226,9 +2287,7 @@ $(document).ready(function(){
            for (i=1;i<=cant;i++){
             $('.dibujoT_'+nro+'  #list_cc').append('<div class="icono_cc" >'+i+'</div>');
             nuevo_elem = $('<div class="icono_cc" data-name=cochera_cubierta>'+i+'</div>');
-             nuevo_elem.draggable({
-                 revert: "invalid"
-            });
+             nuevo_elem.draggable(/*{revert: "invalid"}*/);
             $('#uf_secundarias .torre_'+nro+' #list_cc').append(nuevo_elem);
             $('#uf_secundarias .torre_'+nro+' #list_cc').append('<div class="help_hidden"><div id="hidden_'+i+'" class="icono_cc_done" hidden=true>'+i+'</div><div class="help_hover">1A<div></div><img src="images/icon-arrow-up.png" style="top:-9px"></div></div>');
            }
@@ -2424,6 +2483,16 @@ $(document).ready(function(){
 
       var espacio=$(this).val();
 
+      if(nombre_id=="espacio_comun"){
+        var v1="con_reserva";
+        var v2="Uso con reserva";
+      }
+      else{
+        var v1="genera_ingreso";
+        var v2="Genera Ingresos";
+
+      }
+
       if ($('#torres_iguales').is(':checked') &&  (nro==1)){
          for (t=1;t<=cant_torres;t++){
           var nombre_dibujo=nombre_id+'_dib';
@@ -2433,7 +2502,7 @@ $(document).ready(function(){
             $('.torre_'+t+' #'+nombre_id).append('<div class="div_input" >' +
                                      '<div class="logo_close"></div>' +
                                      '<input type="text" id="'+nombre+'" class="nuevo_espacio '+nombre_id+'_'+prox+'" value="Ingrese un espacio común...">' +
-                                     '<input type="checkbox" name="con_reserva" id="con_reserva"> Uso con reserva' +
+                                     '<input type="checkbox" name="'+v1+'" id="'+v1+'"> '+ v2 +
                                      '</div>');
 
             $('.torre_'+t+' .'+nombre_id+'_'+cant).removeClass('nuevo_espacio');
@@ -2460,7 +2529,7 @@ $(document).ready(function(){
         $('.torre_'+nro+' #'+nombre_id).append('<div class="div_input" >' +
                                  '<div class="logo_close"></div>' +
                                  '<input type="text" id="'+nombre+'" class="nuevo_espacio" value="Ingrese un espacio común...">' +
-                                 '<input type="checkbox" name="con_reserva" id="con_reserva"> Uso con reserva' +
+                                 '<input type="checkbox" name="'+v1+'" id="'+v1+'"> '+ v2 +
                                  '</div>');
         $(this).removeClass('nuevo_espacio');
         $(this).addClass('espacio_listo');

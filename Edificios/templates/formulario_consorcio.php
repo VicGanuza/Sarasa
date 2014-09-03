@@ -1,4 +1,4 @@
-<div id="formulario_concorcio" class="display_none">
+<div id="formulario_consorcio" class="display_none">
   <div class="notes">
      <div class="coments coment1">
        <div><span class="orange">*</span>
@@ -19,28 +19,28 @@
     <div class="dato_input">
     <p>  <span class="orange">*</span>
       <span class="blue">**</span> Nombre del consorcio </p>
-      <input type="text" name="nombre_consorcio">
+      <input type="text" name="nombre_consorcio" class="validate[required]">
     </div>
     <div class="dato_input">
     <p>  <span class="orange">*</span>
       <span class="blue">**</span> Razon social </p>
-      <input type="text" name="razon_soc_consorcio">
+      <input type="text" name="razon_soc_consorcio" class="validate[required]">
     </div>
     <div class="dato_input">
     <p>  <span class="orange">*</span>
       <span class="blue">**</span> Calle </p>
-      <input type="text" name="calle_consorcio">
+      <input type="text" name="calle_consorcio" class="validate[required]">
     </div>
     <div class="dato_input small_input">
     <p>  <span class="orange">*</span>
       <span class="blue">**</span> Nro. </p>
-      <input type="text" name="nro_calle_consorcio" class="input_small">
+      <input type="text" name="nro_calle_consorcio" class="input_small validate[required,custom[number]]">
     </div>
     <div class="dato_input">
     <p>  <span class="orange">*</span>
       <span class="blue">**</span> Categoria </p>
-      <select id="categoria">
-        <option value="0"></option>
+      <select id="categoria" class="validate[required]">
+        <option value=""></option>
         <option value="1">A1</option>
         <option value="2">A</option>
         <option value="3">B</option>
@@ -52,7 +52,7 @@
     <div class="datos">
     <div class="dato_input">
     <p>  <span class="orange">*</span> Localidad </p>
-      <select id="localidad_consorcio">
+      <select id="localidad_consorcio" class="validate[required]">
         <option value=""></option>
         <option value="Buenos Aires">Buenos Aires</option>
         <option value="Cordoba">Córdoba</option>
@@ -62,7 +62,7 @@
     </div>
     <div class="dato_input">
     <p>    <span class="orange">*</span> Provincia </p>
-        <select id="provincia_consorcio">
+        <select id="provincia_consorcio" class="validate[required]">
           <option value=""></option>
           <option value="Buenos Aires">Buenos Aires</option>
           <option value="Cordoba">Córdoba</option>
@@ -79,12 +79,12 @@
     <div class="dato_input">
     <p>  <span class="orange">*</span>
       <span class="blue">**</span> Cuit </p>
-      <input type="text" name="Cuit">
+      <input type="text" name="Cuit" class="validate[required]">
     </div>
     <div class="dato_input">
     <p>  <span class="orange">*</span>IVA </p>
-      <select id="iva">
-        <option value="0"></option>
+      <select id="iva" class="validate[required]">
+        <option value=""></option>
         <option value="1">Responsable Inscripto</option>
         <option value="2">Monotributista</option>
         <option value="3">Excento</option>
